@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "stage=0": { "model": "miragefairy2018:dreamy_flower_stage0" },
+        "stage=1": { "model": "miragefairy2018:dreamy_flower_stage1" },
+        "stage=2": { "model": "miragefairy2018:dreamy_flower_stage2" },
+        "stage=3": { "model": "miragefairy2018:dreamy_flower_stage3" }
+    }
+}
