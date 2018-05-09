@@ -12,13 +12,14 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 
 version = "1.0"
-group = "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+group = "miragefairy2018" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "miragefairy2018"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
+tasks.withType(AbstractCompile)*.options*.encoding = 'UTF-8'
 
 minecraft {
     version = "1.12.2-14.23.3.2655"
