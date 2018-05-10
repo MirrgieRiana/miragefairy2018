@@ -35,7 +35,7 @@ public class BlockDreamyFlower extends BlockBush
 
 	}
 
-	// meta
+	// state
 
 	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
 
