@@ -116,18 +116,25 @@ public class BlockDreamyFlower extends BlockBush
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
 	{
 		Random random = world instanceof World ? ((World) world).rand : new Random();
-		int count = 1;
+		int seedCount = 1;
+		int additionalDropCount = 0;
 
 		if (state.getValue(AGE) >= 3) {
 			for (int i = 0; i < fortune + 1; i++) {
 				if (random.nextDouble() < 0.05) {
-					count++;
+					seedCount++;
+				}
+				if (random.nextDouble() < 0.5) {
+					additionalDropCount++;
 				}
 			}
 		}
 
-		for (int i = 0; i < count; i++) {
+		for (int i = 0; i < seedCount; i++) {
 			drops.add(ModMirageFairy2018.itemStackDreamyFlowerSeeds.copy());
+		}
+		for (int i = 0; i < additionalDropCount; i++) {
+			drops.add(ModMirageFairy2018.itemDustMirage.copy());
 		}
 
 	}
