@@ -30,6 +30,8 @@ public class ExampleMod
 	public static BlockDreamyFlower blockDreamyFlower;
 	public static Item itemDreamyFlowerSeeds;
 
+	public static ItemStack itemStackDreamyFlowerSeeds;
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -56,6 +58,8 @@ public class ExampleMod
 		itemDreamyFlowerSeeds.setUnlocalizedName("dreamy_flower_seeds");
 		ForgeRegistries.ITEMS.register(itemDreamyFlowerSeeds);
 		ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
+
+		itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
 
 	}
 

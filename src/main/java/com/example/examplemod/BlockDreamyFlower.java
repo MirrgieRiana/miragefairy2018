@@ -37,7 +37,7 @@ public class BlockDreamyFlower extends BlockBush
 
 	// meta
 
-	public static final PropertyInteger AGE = PropertyInteger.create("stage", 0, 3);
+	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 3);
 
 	@Override
 	public int getMetaFromState(IBlockState state)
@@ -82,50 +82,19 @@ public class BlockDreamyFlower extends BlockBush
 	{
 		super.updateTick(worldIn, pos, state, rand);
 
-		int stage = state.getValue(AGE);
-		if (stage < 3) {
-			worldIn.setBlockState(pos, getDefaultState().withProperty(AGE, stage + 1), 2);
+		int age = state.getValue(AGE);
+		if (age < 3) {
+			worldIn.setBlockState(pos, getDefaultState().withProperty(AGE, age + 1), 2);
 		}
 
 	}
 
-	/**
-	 * Spawns this Block's drops into the World as EntityItems.
-	 */
-	@Override
-	@SuppressWarnings("unused")
-	public void dropBlockAsItemWithChance(World worldIn, BlockPos pos, IBlockState state, float chance, int fortune)
-	{
-		super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
-		if (false && !worldIn.isRemote) {
-			int i = 1;
-
-			if (state.getValue(AGE).intValue() >= 3) {
-				i = 2 + worldIn.rand.nextInt(3);
-
-				if (fortune > 0) {
-					i += worldIn.rand.nextInt(fortune + 1);
-				}
-			}
-
-			for (int j = 0; j < i; ++j) {
-				spawnAsEntity(worldIn, pos, new ItemStack(Items.NETHER_WART));
-			}
-		}
-	}
-
-	/**
-	 * Get the Item that this Block should drop when harvested.
-	 */
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune)
 	{
 		return Items.AIR;
 	}
 
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
 	@Override
 	public int quantityDropped(Random random)
 	{
@@ -133,30 +102,35 @@ public class BlockDreamyFlower extends BlockBush
 	}
 
 	@Override
-	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state)
+	public ItemStack getItem(World world, BlockPos pos, IBlockState state)
 	{
-		return new ItemStack(Items.NETHER_WART);
+		return ExampleMod.itemStackDreamyFlowerSeeds.copy();
 	}
 
 	@Override
-	public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, net.minecraft.world.IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
+	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
 	{
-		Random rand = world instanceof World ? ((World) world).rand : new Random();
+		Random random = world instanceof World ? ((World) world).rand : new Random();
 		int count = 1;
 
-		if ((state.getValue(AGE)) >= 3) {
-			count = 2 + rand.nextInt(3) + (fortune > 0 ? rand.nextInt(fortune + 1) : 0);
+		if (state.getValue(AGE) >= 3) {
+			for (int i = 0; i < fortune + 1; i++) {
+				if (random.nextDouble() < 0.05) {
+					count++;
+				}
+			}
 		}
 
 		for (int i = 0; i < count; i++) {
-			drops.add(new ItemStack(Items.NETHER_WART));
+			drops.add(ExampleMod.itemStackDreamyFlowerSeeds.copy());
 		}
+
 	}
 
 	//
 
 	@Override
-	public void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items)
+	public void getSubBlocks(CreativeTabs creativeTab, NonNullList<ItemStack> items)
 	{
 		items.add(new ItemStack(this, 1, 0));
 		items.add(new ItemStack(this, 1, 1));
