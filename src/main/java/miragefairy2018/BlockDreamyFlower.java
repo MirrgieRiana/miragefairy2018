@@ -121,12 +121,14 @@ public class BlockDreamyFlower extends BlockBush
 
 		if (state.getValue(AGE) >= 3) {
 			for (int i = 0; i < fortune + 1; i++) {
-				if (random.nextDouble() < 0.05) {
-					seedCount++;
-				}
-				if (random.nextDouble() < 0.5) {
-					additionalDropCount++;
-				}
+
+				if (random.nextDouble() < 0.05) seedCount++;
+
+				if (random.nextDouble() < 0.5) additionalDropCount++;
+				if (random.nextDouble() < 0.5) additionalDropCount++;
+				if (random.nextDouble() < 0.5) additionalDropCount++;
+				if (random.nextDouble() < 0.5) additionalDropCount++;
+
 			}
 		}
 
@@ -134,7 +136,7 @@ public class BlockDreamyFlower extends BlockBush
 			drops.add(ModMirageFairy2018.itemStackDreamyFlowerSeeds.copy());
 		}
 		for (int i = 0; i < additionalDropCount; i++) {
-			drops.add(ModMirageFairy2018.itemDustMirage.copy());
+			drops.add(ModMirageFairy2018.itemMaterials.getItemStack(ModMirageFairy2018.dustTinyMiragium));
 		}
 
 	}

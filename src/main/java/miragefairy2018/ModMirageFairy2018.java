@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 import mirrg.beryllium.lang.LambdaUtil;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.model.ModelLoader;
@@ -36,15 +35,43 @@ public class ModMirageFairy2018
 
 	public static CreativeTabs creativeTab;
 
+	public static ArrayList<Consumer<DecorateBiomeEvent.Post>> listenersDecorateBiomeEventPost = new ArrayList<>();
+
+	//
+
 	public static BlockDreamyFlower blockDreamyFlower;
-	public static Item itemDreamyFlowerSeeds;
-	public static Item itemMaterials;
+	public static ItemSeedDreamyFlower itemDreamyFlowerSeeds;
 
 	public static ItemStack itemStackDreamyFlowerSeeds;
-	public static ItemStack itemDustMirage;
-	public static ItemStack itemIngotMirage;
 
-	public static ArrayList<Consumer<DecorateBiomeEvent.Post>> listenersDecorateBiomeEventPost = new ArrayList<>();
+	//
+
+	public static final Category<Shape> shapes = new Category<>();
+	public static final Shape dust = CategoryItem.register(new Shape(0, "dust"), shapes);
+	public static final Shape dustTiny = CategoryItem.register(new Shape(2, "dustTiny"), shapes);
+	public static final Shape ingot = CategoryItem.register(new Shape(4, "ingot"), shapes);
+	public static final Shape sword = CategoryItem.register(new Shape(32, "sword"), shapes);
+	public static final Shape pickaxe = CategoryItem.register(new Shape(33, "pickaxe"), shapes);
+	public static final Shape axe = CategoryItem.register(new Shape(34, "axe"), shapes);
+	public static final Shape shovel = CategoryItem.register(new Shape(35, "shovel"), shapes);
+	public static final Shape hoe = CategoryItem.register(new Shape(36, "hoe"), shapes);
+
+	public static final Category<Material> materials = new Category<>();
+	public static final Material miragium = CategoryItem.register(new Material(0, "Miragium"), materials);
+
+	public static final Category<SubItem> subItemsMaterial = new Category<>();
+	public static final SubItem dustMiragium = CategoryItem.register(new SubItem(dust, miragium), subItemsMaterial);
+	public static final SubItem dustTinyMiragium = CategoryItem.register(new SubItem(dustTiny, miragium), subItemsMaterial);
+	public static final SubItem ingotMiragium = CategoryItem.register(new SubItem(ingot, miragium), subItemsMaterial);
+	public static final SubItem swordMiragium = CategoryItem.register(new SubItem(sword, miragium), subItemsMaterial);
+	public static final SubItem pickaxeMiragium = CategoryItem.register(new SubItem(pickaxe, miragium), subItemsMaterial);
+	public static final SubItem axeMiragium = CategoryItem.register(new SubItem(axe, miragium), subItemsMaterial);
+	public static final SubItem shovelMiragium = CategoryItem.register(new SubItem(shovel, miragium), subItemsMaterial);
+	public static final SubItem hoeMiragium = CategoryItem.register(new SubItem(hoe, miragium), subItemsMaterial);
+
+	//
+
+	public static ItemMatrix itemMaterials;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -82,15 +109,14 @@ public class ModMirageFairy2018
 			itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
 
 			// 素材マトリクスアイテム
-			itemMaterials = new ItemMatrix();
+			itemMaterials = new ItemMatrix(subItemsMaterial);
 			itemMaterials.setRegistryName(MODID, "materials");
 			itemMaterials.setCreativeTab(creativeTab);
 			ForgeRegistries.ITEMS.register(itemMaterials);
-			ModelLoader.setCustomModelResourceLocation(itemMaterials, 0 * 64 + 0, new ModelResourceLocation(MODID + ":mirage_dust"));
-			ModelLoader.setCustomModelResourceLocation(itemMaterials, 1 * 64 + 0, new ModelResourceLocation(MODID + ":mirage_ingot"));
-
-			itemDustMirage = new ItemStack(itemMaterials, 1, 0 * 64 + 0);
-			itemIngotMirage = new ItemStack(itemMaterials, 1, 1 * 64 + 0);
+			subItemsMaterial.stream()
+				.forEach(si -> {
+					ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.getResourceName()));
+				});
 
 			// 地形生成
 			listenersDecorateBiomeEventPost.add(

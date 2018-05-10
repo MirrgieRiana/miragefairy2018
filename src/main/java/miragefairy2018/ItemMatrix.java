@@ -8,8 +8,12 @@ import net.minecraft.util.NonNullList;
 public class ItemMatrix extends Item
 {
 
-	public ItemMatrix()
+	public Category<SubItem> subItems;
+
+	public ItemMatrix(Category<SubItem> subItems)
 	{
+		this.subItems = subItems;
+
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
@@ -18,22 +22,25 @@ public class ItemMatrix extends Item
 	public String getUnlocalizedName(ItemStack stack)
 	{
 		int meta = stack.getMetadata();
-		int shape = meta / 64;
-		int material = meta % 64;
-		String unlocalizedName = "item.";
-
-		if (shape == 0) unlocalizedName += "dust";
-		if (shape == 1) unlocalizedName += "ingot";
-
-		if (material == 0) unlocalizedName += "Mirage";
-
-		return unlocalizedName;
+		return "item." + subItems.stream()
+			.filter(si -> meta == si.id)
+			.findFirst()
+			.map(si -> si.name)
+			.orElse("null");
 	}
 
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
-		items.add(new ItemStack(this, 1, 0 * 64 + 0));
-		items.add(new ItemStack(this, 1, 1 * 64 + 0));
+		subItems.stream()
+			.forEach(si -> {
+				items.add(new ItemStack(this, 1, si.id));
+			});
 	}
+
+	public ItemStack getItemStack(SubItem subItem)
+	{
+		return new ItemStack(this, 1, subItem.id);
+	}
+
 }
