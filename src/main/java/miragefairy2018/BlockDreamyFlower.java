@@ -57,6 +57,11 @@ public class BlockDreamyFlower extends BlockBush
 		return new BlockStateContainer(this, new IProperty[] { AGE });
 	}
 
+	public IBlockState getState(int age)
+	{
+		return getDefaultState().withProperty(AGE, age);
+	}
+
 	// style
 
 	public static final AxisAlignedBB AABB_STAGE0 = new AxisAlignedBB(5 / 16.0, 0 / 16.0, 5 / 16.0, 11 / 16.0, 5 / 16.0, 11 / 16.0);
