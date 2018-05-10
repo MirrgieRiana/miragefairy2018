@@ -38,6 +38,7 @@ public class ModMirageFairy2018
 
 		logger = event.getModLog();
 
+		// クリエイティブタブ登録
 		creativeTab = new CreativeTabs("MirageFairy2018") {
 			@Override
 			@SideOnly(Side.CLIENT)
