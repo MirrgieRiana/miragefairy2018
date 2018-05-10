@@ -1,7 +1,0 @@
-{
-    "parent": "block/cross",
-    "textures": {
-        "particle": "miragefairy2018:blocks/dreamy_flower_stage0",
-        "cross": "miragefairy2018:blocks/dreamy_flower_stage0"
-    }
-}
