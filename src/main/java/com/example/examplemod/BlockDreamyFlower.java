@@ -69,9 +69,9 @@ public class BlockDreamyFlower extends BlockBush
 	{
 		int stage = state.getValue(AGE);
 		if (stage == 0) return AABB_STAGE0;
-		if (stage == 0) return AABB_STAGE1;
-		if (stage == 0) return AABB_STAGE2;
-		if (stage == 0) return AABB_STAGE3;
+		if (stage == 1) return AABB_STAGE1;
+		if (stage == 2) return AABB_STAGE2;
+		if (stage == 3) return AABB_STAGE3;
 		return AABB_STAGE3;
 	}
 
