@@ -1,16 +1,25 @@
 package miragefairy2018;
 
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
 import org.apache.logging.log4j.Logger;
 
+import mirrg.beryllium.lang.LambdaUtil;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -31,6 +40,8 @@ public class ModMirageFairy2018
 	public static Item itemDreamyFlowerSeeds;
 
 	public static ItemStack itemStackDreamyFlowerSeeds;
+
+	public static ArrayList<Consumer<DecorateBiomeEvent.Post>> listenersDecorateBiomeEventPost = new ArrayList<>();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -68,7 +79,30 @@ public class ModMirageFairy2018
 			// 種登録
 			itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
 
+			// 地形生成
+			listenersDecorateBiomeEventPost.add(
+				new BiomeDecoratorFlowers(
+					LambdaUtil.process(new WorldGenBush(blockDreamyFlower, blockDreamyFlower.getState(3)), worldGenerator -> {
+						worldGenerator.blockCountMin = 1;
+						worldGenerator.blockCountMax = 3;
+					}),
+					0.25) {
+					@Override
+					protected boolean canGenerate(Biome biome)
+					{
+						return super.canGenerate(biome) && BiomeDictionary.hasType(biome, BiomeDictionary.Type.MOUNTAIN);
+					}
+				});
+
 		}
+
+		MinecraftForge.EVENT_BUS.register(new Object() {
+			@SubscribeEvent
+			public void onDecorateBiomeEventPost(DecorateBiomeEvent.Post event)
+			{
+				listenersDecorateBiomeEventPost.forEach(l -> l.accept(event));
+			}
+		});
 
 	}
 
