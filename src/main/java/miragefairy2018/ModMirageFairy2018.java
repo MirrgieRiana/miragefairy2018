@@ -38,8 +38,11 @@ public class ModMirageFairy2018
 
 	public static BlockDreamyFlower blockDreamyFlower;
 	public static Item itemDreamyFlowerSeeds;
+	public static Item itemMaterials;
 
 	public static ItemStack itemStackDreamyFlowerSeeds;
+	public static ItemStack itemDustMirage;
+	public static ItemStack itemIngotMirage;
 
 	public static ArrayList<Consumer<DecorateBiomeEvent.Post>> listenersDecorateBiomeEventPost = new ArrayList<>();
 
@@ -76,8 +79,18 @@ public class ModMirageFairy2018
 			ForgeRegistries.ITEMS.register(itemDreamyFlowerSeeds);
 			ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
 
-			// 種登録
 			itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
+
+			// 素材マトリクスアイテム
+			itemMaterials = new ItemMatrix();
+			itemMaterials.setRegistryName(MODID, "materials");
+			itemMaterials.setCreativeTab(creativeTab);
+			ForgeRegistries.ITEMS.register(itemMaterials);
+			ModelLoader.setCustomModelResourceLocation(itemMaterials, 0 * 64 + 0, new ModelResourceLocation(MODID + ":mirage_dust"));
+			ModelLoader.setCustomModelResourceLocation(itemMaterials, 1 * 64 + 0, new ModelResourceLocation(MODID + ":mirage_ingot"));
+
+			itemDustMirage = new ItemStack(itemMaterials, 1, 0 * 64 + 0);
+			itemIngotMirage = new ItemStack(itemMaterials, 1, 1 * 64 + 0);
 
 			// 地形生成
 			listenersDecorateBiomeEventPost.add(
