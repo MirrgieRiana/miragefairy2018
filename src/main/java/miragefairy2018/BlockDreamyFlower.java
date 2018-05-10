@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package miragefairy2018;
 
 import java.util.Random;
 
@@ -104,7 +104,7 @@ public class BlockDreamyFlower extends BlockBush
 	@Override
 	public ItemStack getItem(World world, BlockPos pos, IBlockState state)
 	{
-		return ExampleMod.itemStackDreamyFlowerSeeds.copy();
+		return ModMirageFairy2018.itemStackDreamyFlowerSeeds.copy();
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class BlockDreamyFlower extends BlockBush
 		}
 
 		for (int i = 0; i < count; i++) {
-			drops.add(ExampleMod.itemStackDreamyFlowerSeeds.copy());
+			drops.add(ModMirageFairy2018.itemStackDreamyFlowerSeeds.copy());
 		}
 
 	}

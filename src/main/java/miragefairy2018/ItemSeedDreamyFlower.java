@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package miragefairy2018;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.state.IBlockState;
@@ -30,7 +30,7 @@ public class ItemSeedDreamyFlower extends Item implements IPlantable
 			&& blockState.getBlock().canSustainPlant(blockState, world, pos, EnumFacing.UP, this)
 			&& world.isAirBlock(pos.up())) {
 
-			world.setBlockState(pos.up(), ExampleMod.blockDreamyFlower.getDefaultState());
+			world.setBlockState(pos.up(), ModMirageFairy2018.blockDreamyFlower.getDefaultState());
 
 			if (player instanceof EntityPlayerMP) {
 				CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP) player, pos.up(), itemStack);
@@ -53,7 +53,7 @@ public class ItemSeedDreamyFlower extends Item implements IPlantable
 	@Override
 	public IBlockState getPlant(IBlockAccess world, BlockPos pos)
 	{
-		return ExampleMod.blockDreamyFlower.getDefaultState();
+		return ModMirageFairy2018.blockDreamyFlower.getDefaultState();
 	}
 
 }

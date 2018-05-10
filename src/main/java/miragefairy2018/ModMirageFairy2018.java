@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package miragefairy2018;
 
 import org.apache.logging.log4j.Logger;
 
@@ -15,8 +15,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = ExampleMod.MODID, name = ExampleMod.NAME, version = ExampleMod.VERSION)
-public class ExampleMod
+@Mod(modid = ModMirageFairy2018.MODID, name = ModMirageFairy2018.NAME, version = ModMirageFairy2018.VERSION)
+public class ModMirageFairy2018
 {
 
 	public static final String MODID = "miragefairy2018";
