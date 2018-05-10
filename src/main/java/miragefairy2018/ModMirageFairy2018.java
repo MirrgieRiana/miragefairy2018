@@ -47,19 +47,27 @@ public class ModMirageFairy2018
 			}
 		};
 
-		blockDreamyFlower = new BlockDreamyFlower();
-		blockDreamyFlower.setRegistryName(MODID, "dreamy_flower");
-		blockDreamyFlower.setCreativeTab(creativeTab);
-		ForgeRegistries.BLOCKS.register(blockDreamyFlower);
+		// ドリーミーフラワー関連
+		{
 
-		itemDreamyFlowerSeeds = new ItemSeedDreamyFlower();
-		itemDreamyFlowerSeeds.setRegistryName(MODID, "dreamy_flower_seeds");
-		itemDreamyFlowerSeeds.setCreativeTab(creativeTab);
-		itemDreamyFlowerSeeds.setUnlocalizedName("dreamy_flower_seeds");
-		ForgeRegistries.ITEMS.register(itemDreamyFlowerSeeds);
-		ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
+			// ブロック
+			blockDreamyFlower = new BlockDreamyFlower();
+			blockDreamyFlower.setRegistryName(MODID, "dreamy_flower");
+			blockDreamyFlower.setCreativeTab(creativeTab);
+			ForgeRegistries.BLOCKS.register(blockDreamyFlower);
 
-		itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
+			// 種
+			itemDreamyFlowerSeeds = new ItemSeedDreamyFlower();
+			itemDreamyFlowerSeeds.setRegistryName(MODID, "dreamy_flower_seeds");
+			itemDreamyFlowerSeeds.setCreativeTab(creativeTab);
+			itemDreamyFlowerSeeds.setUnlocalizedName("dreamy_flower_seeds");
+			ForgeRegistries.ITEMS.register(itemDreamyFlowerSeeds);
+			ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
+
+			// 種登録
+			itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
+
+		}
 
 	}
 
