@@ -43,7 +43,6 @@ public class ModMirageFairy2018
 
 	public static BlockDreamyFlower blockDreamyFlower;
 	public static ItemSeedDreamyFlower itemDreamyFlowerSeeds;
-
 	public static ItemStack itemStackDreamyFlowerSeeds;
 
 	//
@@ -136,11 +135,10 @@ public class ModMirageFairy2018
 			itemMaterials.setRegistryName(MODID, "materials");
 			itemMaterials.setCreativeTab(creativeTab);
 			ForgeRegistries.ITEMS.register(itemMaterials);
-			subItemsMaterial.stream()
-				.forEach(si -> {
-					ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.getResourceName()));
-					OreDictionary.registerOre(si.name, itemMaterials.getItemStack(si));
-				});
+			subItemsMaterial.forEach(si -> {
+				ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.getResourceName()));
+				OreDictionary.registerOre(si.name, si.getItemStack());
+			});
 
 		}
 
@@ -150,6 +148,7 @@ public class ModMirageFairy2018
 
 
 		}
+
 		MinecraftForge.EVENT_BUS.register(new Object() {
 			@SubscribeEvent
 			public void onDecorateBiomeEventPost(DecorateBiomeEvent.Post event)
