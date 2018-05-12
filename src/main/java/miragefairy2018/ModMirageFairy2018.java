@@ -65,11 +65,13 @@ public class ModMirageFairy2018
 
 	public static final Category<Material> materials = new Category<>();
 	public static final Material miragium = CategoryItem.register(new Material(0, "Miragium"), materials);
+	public static final Material miragonite = CategoryItem.register(new Material(1, "Miragonite"), materials);
 
 	public static final Category<SubItem> subItemsMaterial = new Category<>();
 	public static final SubItem dustMiragium = CategoryItem.register(new SubItem(dust, miragium), subItemsMaterial);
 	public static final SubItem dustTinyMiragium = CategoryItem.register(new SubItem(dustTiny, miragium), subItemsMaterial);
 	public static final SubItem ingotMiragium = CategoryItem.register(new SubItem(ingot, miragium), subItemsMaterial);
+	public static final SubItem gemMiragonite = CategoryItem.register(new SubItem(gem, miragonite), subItemsMaterial);
 	public static final SubItem swordMiragium = CategoryItem.register(new SubItem(sword, miragium), subItemsMaterial);
 	public static final SubItem pickaxeMiragium = CategoryItem.register(new SubItem(pickaxe, miragium), subItemsMaterial);
 	public static final SubItem axeMiragium = CategoryItem.register(new SubItem(axe, miragium), subItemsMaterial);
@@ -171,6 +173,7 @@ public class ModMirageFairy2018
 		{
 
 			GameRegistry.addSmelting(dustMiragium.getItemStack(), ingotMiragium.getItemStack(), 0);
+			GameRegistry.addSmelting(gemMiragonite.getItemStack(), dustMiragium.getItemStack(), 0);
 
 		}
 
