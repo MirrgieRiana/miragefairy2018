@@ -122,7 +122,7 @@ public class ModMirageFairy2018
 			itemDreamyFlowerSeeds.setCreativeTab(creativeTab);
 			itemDreamyFlowerSeeds.setUnlocalizedName("dreamy_flower_seeds");
 			ForgeRegistries.ITEMS.register(itemDreamyFlowerSeeds);
-			ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
+			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
 
 			// スタック追加
 			itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
@@ -153,7 +153,7 @@ public class ModMirageFairy2018
 			itemMaterials.setCreativeTab(creativeTab);
 			ForgeRegistries.ITEMS.register(itemMaterials);
 			subItemsMaterial.forEach(si -> {
-				ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.resourceName));
+				if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.resourceName));
 				OreDictionary.registerOre(si.name, si.getItemStack());
 			});
 
@@ -167,7 +167,7 @@ public class ModMirageFairy2018
 			itemSwordMiragium.setCreativeTab(creativeTab);
 			itemSwordMiragium.setUnlocalizedName("miragium_sword");
 			ForgeRegistries.ITEMS.register(itemSwordMiragium);
-			ModelLoader.setCustomModelResourceLocation(itemSwordMiragium, 0, new ModelResourceLocation(MODID + ":miragium_sword"));
+			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemSwordMiragium, 0, new ModelResourceLocation(MODID + ":miragium_sword"));
 
 			itemStackSwordMiragium = new ItemStack(itemSwordMiragium, 1, 0);
 
