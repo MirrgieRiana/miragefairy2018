@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.TreeMap;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import mirrg.beryllium.struct.ImmutableArray;
@@ -46,6 +47,11 @@ public class Category<I>
 		return getTable().stream()
 			.filter(Optional::isPresent)
 			.map(Optional::get);
+	}
+
+	public void forEach(Consumer<I> consumer)
+	{
+		stream().forEach(consumer);
 	}
 
 	private void init()
