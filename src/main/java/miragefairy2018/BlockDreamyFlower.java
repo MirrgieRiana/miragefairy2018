@@ -117,6 +117,7 @@ public class BlockDreamyFlower extends BlockBush
 	{
 		Random random = world instanceof World ? ((World) world).rand : new Random();
 		int seedCount = 1;
+		int dropCount = 0;
 		int additionalDropCount = 0;
 
 		if (state.getValue(AGE) >= 3) {
@@ -124,10 +125,12 @@ public class BlockDreamyFlower extends BlockBush
 
 				if (random.nextDouble() < 0.05) seedCount++;
 
-				if (random.nextDouble() < 0.5) additionalDropCount++;
-				if (random.nextDouble() < 0.5) additionalDropCount++;
-				if (random.nextDouble() < 0.5) additionalDropCount++;
-				if (random.nextDouble() < 0.5) additionalDropCount++;
+				if (random.nextDouble() < 0.5) dropCount++;
+				if (random.nextDouble() < 0.5) dropCount++;
+				if (random.nextDouble() < 0.5) dropCount++;
+				if (random.nextDouble() < 0.5) dropCount++;
+
+				if (random.nextDouble() < 0.05) additionalDropCount++;
 
 			}
 		}
@@ -135,8 +138,11 @@ public class BlockDreamyFlower extends BlockBush
 		for (int i = 0; i < seedCount; i++) {
 			drops.add(ModMirageFairy2018.itemStackDreamyFlowerSeeds.copy());
 		}
-		for (int i = 0; i < additionalDropCount; i++) {
+		for (int i = 0; i < dropCount; i++) {
 			drops.add(ModMirageFairy2018.dustTinyMiragium.createItemStack());
+		}
+		for (int i = 0; i < additionalDropCount; i++) {
+			drops.add(ModMirageFairy2018.mirageWispTier1.createItemStack());
 		}
 
 	}
