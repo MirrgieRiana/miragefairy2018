@@ -22,6 +22,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 @Mod(modid = ModMirageFairy2018.MODID, name = ModMirageFairy2018.NAME, version = ModMirageFairy2018.VERSION)
 public class ModMirageFairy2018
@@ -137,6 +138,7 @@ public class ModMirageFairy2018
 			subItemsMaterial.stream()
 				.forEach(si -> {
 					ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.getResourceName()));
+					OreDictionary.registerOre(si.name, itemMaterials.getItemStack(si));
 				});
 
 		}
