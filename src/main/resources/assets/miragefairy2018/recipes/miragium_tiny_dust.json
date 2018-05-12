@@ -1,0 +1,17 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"#"
+	],
+	"key": {
+		"#": {
+			"type": "forge:ore_dict",
+			"ore": "dustMiragium"
+		}
+	},
+	"result": {
+		"item": "miragefairy2018:materials",
+		"data": 128,
+		"count": 9
+	}
+}
