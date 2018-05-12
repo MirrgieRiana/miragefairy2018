@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "miragefairy2018:items/earth_elemental_emblem"
+	}
+}

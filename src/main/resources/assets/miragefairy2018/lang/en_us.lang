@@ -8,6 +8,13 @@ item.miragium_tiny_dust.name=Tiny Pile of Miragium Dust
 item.miragium_ingot.name=Miragium Ingot
 item.miragonite_gem.name=Miragonite
 
+item.light_elemental_emblem.name=Light Elemental Emblem
+item.fire_elemental_emblem.name=Fire Elemental Emblem
+item.wind_elemental_emblem.name=Wind Elemental Emblem
+item.earth_elemental_emblem.name=Earth Elemental Emblem
+item.water_elemental_emblem.name=Water Elemental Emblem
+item.shadow_elemental_emblem.name=Shadow Elemental Emblem
+
 item.miragium_sword.name=Miragium Sword
 item.miragium_pickaxe.name=Miragium Pickaxe
 item.miragium_axe.name=Miragium Axe

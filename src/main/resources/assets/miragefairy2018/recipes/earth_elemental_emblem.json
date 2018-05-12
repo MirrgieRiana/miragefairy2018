@@ -1,0 +1,27 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"IMI",
+		"MDM",
+		"IMI"
+	],
+	"key": {
+		"I": {
+			"type": "forge:ore_dict",
+			"ore": "ingotIron"
+		},
+		"M": {
+			"type": "forge:ore_dict",
+			"ore": "dustTinyMiragium"
+		},
+		"D": {
+			"type": "forge:ore_dict",
+			"ore": "dyeYellow"
+		}
+	},
+	"result": {
+		"item": "miragefairy2018:materials",
+		"data": 4099,
+		"count": 8
+	}
+}

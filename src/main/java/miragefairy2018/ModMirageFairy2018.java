@@ -77,6 +77,12 @@ public class ModMirageFairy2018
 	public static final SubItem axeMiragium = CategoryItem.register(new SubItemMatrix(axe, miragium), subItemsMaterial);
 	public static final SubItem shovelMiragium = CategoryItem.register(new SubItemMatrix(shovel, miragium), subItemsMaterial);
 	public static final SubItem hoeMiragium = CategoryItem.register(new SubItemMatrix(hoe, miragium), subItemsMaterial);
+	public static final SubItem elementalEmblemLight = CategoryItem.register(new SubItem(64 * 64 + 0, "elementalEmblemLight", "light_elemental_emblem"), subItemsMaterial);
+	public static final SubItem elementalEmblemFire = CategoryItem.register(new SubItem(64 * 64 + 1, "elementalEmblemFire", "fire_elemental_emblem"), subItemsMaterial);
+	public static final SubItem elementalEmblemWind = CategoryItem.register(new SubItem(64 * 64 + 2, "elementalEmblemWind", "wind_elemental_emblem"), subItemsMaterial);
+	public static final SubItem elementalEmblemEarth = CategoryItem.register(new SubItem(64 * 64 + 3, "elementalEmblemEarth", "earth_elemental_emblem"), subItemsMaterial);
+	public static final SubItem elementalEmblemWater = CategoryItem.register(new SubItem(64 * 64 + 4, "elementalEmblemWater", "water_elemental_emblem"), subItemsMaterial);
+	public static final SubItem elementalEmblemShadow = CategoryItem.register(new SubItem(64 * 64 + 5, "elementalEmblemShadow", "shadow_elemental_emblem"), subItemsMaterial);
 
 	//
 
