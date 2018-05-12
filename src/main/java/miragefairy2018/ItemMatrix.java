@@ -14,6 +14,8 @@ public class ItemMatrix extends Item
 	{
 		this.subItems = subItems;
 
+		subItems.forEach(si -> si.setItem(this));
+
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
