@@ -34,6 +34,7 @@ public class ItemMatrix extends Item
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
+		if (!isInCreativeTab(tab)) return;
 		subItems.forEach(si -> {
 			items.add(new ItemStack(this, 1, si.id));
 		});
