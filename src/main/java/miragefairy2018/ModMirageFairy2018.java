@@ -98,8 +98,11 @@ public class ModMirageFairy2018
 	public static final Category<SubItem> subItemsMirageFairy = new Category<>();
 	public static final SubItem mirageFairyTorch = CategoryItem.register(new SubItem(0, "mirageFairyTorch", "torch_mirage_fairy"), subItemsMirageFairy);
 	public static final SubItem mirageFairyFeather = CategoryItem.register(new SubItem(1, "mirageFairyFeather", "feather_mirage_fairy"), subItemsMirageFairy);
-
 	public static ItemMatrix itemMirageFairy;
+
+	public static final Category<SubItem> subItemsMirageWisp = new Category<>();
+	public static final SubItem mirageWispTier1 = CategoryItem.register(new SubItem(0, "mirageWispTier1", "tier1_mirage_wisp"), subItemsMirageWisp);
+	public static ItemMatrix itemMirageWisp;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -204,6 +207,16 @@ public class ModMirageFairy2018
 				OreDictionary.registerOre("mirageFairy", si.getItemStack());
 			});
 
+			// ウィスプ
+			itemMirageWisp = new ItemMatrix(subItemsMirageWisp);
+			itemMirageWisp.setRegistryName(MODID, "mirage_wisp");
+			itemMirageWisp.setCreativeTab(creativeTab);
+			ForgeRegistries.ITEMS.register(itemMirageWisp);
+			subItemsMirageWisp.forEach(si -> {
+				if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemMirageWisp, si.id, new ModelResourceLocation(MODID + ":mirage_wisp"));
+				OreDictionary.registerOre(si.name, si.getItemStack());
+			});
+
 		}
 
 		// レシピ
@@ -250,6 +263,22 @@ public class ModMirageFairy2018
 					return 0xffffff;
 				}
 			}, itemMirageFairy);
+		}
+
+		if (event.getSide().isClient()) {
+			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
+				@Override
+				public int colorMultiplier(ItemStack stack, int tintIndex)
+				{
+					if (stack.getMetadata() == 0) {
+						if (tintIndex == 0) return 0xddddff;
+						if (tintIndex == 1) return 0xddddff;
+						if (tintIndex == 2) return 0xddddff;
+						if (tintIndex == 3) return 0xddddff;
+					}
+					return 0xffffff;
+				}
+			}, itemMirageWisp);
 		}
 
 	}
