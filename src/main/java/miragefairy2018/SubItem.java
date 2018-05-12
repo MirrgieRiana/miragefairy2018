@@ -29,21 +29,29 @@ public class SubItem extends CategoryItem
 
 	//
 
-	private ItemStack itemStack;
+	private Item item;
 
 	public void setItem(Item item)
 	{
-		itemStack = new ItemStack(item, 1, id);
+		this.item = item;
 	}
+
+	private ItemStack itemStack;
 
 	public ItemStack getItemStack()
 	{
+		if (itemStack == null) itemStack = createItemStack();
 		return itemStack;
 	}
 
-	public ItemStack copyItemStack()
+	public ItemStack createItemStack()
 	{
-		return getItemStack().copy();
+		return createItemStack(1);
+	}
+
+	public ItemStack createItemStack(int amount)
+	{
+		return new ItemStack(item, amount, id);
 	}
 
 }
