@@ -74,6 +74,11 @@ public class ModMirageFairy2018
 
 	public static ItemMatrix itemMaterials;
 
+	//
+
+	public static ItemSwordMiragium itemSwordMiragium;
+	public static ItemStack itemStackSwordMiragium;
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -142,6 +147,19 @@ public class ModMirageFairy2018
 
 		}
 
+		// ミラージュ製ツール
+		{
+
+			itemSwordMiragium = new ItemSwordMiragium();
+			itemSwordMiragium.setRegistryName(MODID, "miragium_sword");
+			itemSwordMiragium.setCreativeTab(creativeTab);
+			itemSwordMiragium.setUnlocalizedName("miragium_sword");
+			ForgeRegistries.ITEMS.register(itemSwordMiragium);
+			ModelLoader.setCustomModelResourceLocation(itemSwordMiragium, 0, new ModelResourceLocation(MODID + ":miragium_sword"));
+
+			itemStackSwordMiragium = new ItemStack(itemSwordMiragium, 1, 0);
+
+		}
 
 		// レシピ
 		{
