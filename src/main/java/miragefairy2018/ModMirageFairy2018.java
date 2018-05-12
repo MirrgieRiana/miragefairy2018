@@ -106,17 +106,8 @@ public class ModMirageFairy2018
 			ForgeRegistries.ITEMS.register(itemDreamyFlowerSeeds);
 			ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
 
+			// スタック追加
 			itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
-
-			// 素材マトリクスアイテム
-			itemMaterials = new ItemMatrix(subItemsMaterial);
-			itemMaterials.setRegistryName(MODID, "materials");
-			itemMaterials.setCreativeTab(creativeTab);
-			ForgeRegistries.ITEMS.register(itemMaterials);
-			subItemsMaterial.stream()
-				.forEach(si -> {
-					ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.getResourceName()));
-				});
 
 			// 地形生成
 			listenersDecorateBiomeEventPost.add(
@@ -131,6 +122,21 @@ public class ModMirageFairy2018
 					{
 						return super.canGenerate(biome) && BiomeDictionary.hasType(biome, BiomeDictionary.Type.MOUNTAIN);
 					}
+				});
+
+		}
+
+		// 素材マトリクスアイテム
+		{
+
+			// 汎用素材アイテム
+			itemMaterials = new ItemMatrix(subItemsMaterial);
+			itemMaterials.setRegistryName(MODID, "materials");
+			itemMaterials.setCreativeTab(creativeTab);
+			ForgeRegistries.ITEMS.register(itemMaterials);
+			subItemsMaterial.stream()
+				.forEach(si -> {
+					ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.getResourceName()));
 				});
 
 		}
