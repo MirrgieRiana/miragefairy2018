@@ -16,6 +16,14 @@
 		}
 	},
 	"result": {
-		"item": "miragefairy2018:miragium_sword"
+		"item": "miragefairy2018:miragium_sword",
+		"nbt": {
+			"ench": [
+				{
+					"id": 21,
+					"lvl": 3
+				}
+			]
+		}
 	}
 }
