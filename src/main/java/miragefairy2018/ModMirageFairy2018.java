@@ -178,7 +178,7 @@ public class ModMirageFairy2018
 		// レシピ
 		{
 
-			GameRegistry.addSmelting(dustMiragium.getItemStack(), ingotMiragium.getItemStack(), 0);
+			GameRegistry.addSmelting(dustTinyMiragium.getItemStack(), ingotMiragium.getItemStack(), 0);
 			GameRegistry.addSmelting(gemMiragonite.getItemStack(), dustMiragium.getItemStack(), 0);
 
 		}
