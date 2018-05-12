@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
@@ -143,6 +144,12 @@ public class ModMirageFairy2018
 
 		}
 
+
+		// レシピ
+		{
+
+
+		}
 		MinecraftForge.EVENT_BUS.register(new Object() {
 			@SubscribeEvent
 			public void onDecorateBiomeEventPost(DecorateBiomeEvent.Post event)
