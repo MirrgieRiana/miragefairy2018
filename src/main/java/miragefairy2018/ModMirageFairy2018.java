@@ -49,8 +49,14 @@ public class ModMirageFairy2018
 
 	public static final Category<Shape> shapes = new Category<>();
 	public static final Shape dust = CategoryItem.register(new Shape(0, "dust"), shapes);
+	public static final Shape dustSmall = CategoryItem.register(new Shape(1, "dustSmall"), shapes);
 	public static final Shape dustTiny = CategoryItem.register(new Shape(2, "dustTiny"), shapes);
+	public static final Shape dust72 = CategoryItem.register(new Shape(3, "dust72"), shapes);
 	public static final Shape ingot = CategoryItem.register(new Shape(4, "ingot"), shapes);
+	public static final Shape chunk = CategoryItem.register(new Shape(5, "chunk"), shapes);
+	public static final Shape nugget = CategoryItem.register(new Shape(6, "nugget"), shapes);
+	public static final Shape ingot72 = CategoryItem.register(new Shape(7, "ingot72"), shapes);
+	public static final Shape gem = CategoryItem.register(new Shape(8, "gem"), shapes);
 	public static final Shape sword = CategoryItem.register(new Shape(32, "sword"), shapes);
 	public static final Shape pickaxe = CategoryItem.register(new Shape(33, "pickaxe"), shapes);
 	public static final Shape axe = CategoryItem.register(new Shape(34, "axe"), shapes);
