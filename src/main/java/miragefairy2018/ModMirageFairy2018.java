@@ -6,7 +6,9 @@ import java.util.function.Consumer;
 import org.apache.logging.log4j.Logger;
 
 import mirrg.beryllium.lang.LambdaUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;
@@ -91,6 +93,14 @@ public class ModMirageFairy2018
 	public static ItemSwordMiragium itemSwordMiragium;
 	public static ItemStack itemStackSwordMiragium;
 
+	//
+
+	public static final Category<SubItem> subItemsMirageFairy = new Category<>();
+	public static final SubItem mirageFairyTorch = CategoryItem.register(new SubItem(0, "mirageFairyTorch", "torch_mirage_fairy"), subItemsMirageFairy);
+	public static final SubItem mirageFairyFeather = CategoryItem.register(new SubItem(1, "mirageFairyFeather", "feather_mirage_fairy"), subItemsMirageFairy);
+
+	public static ItemMatrix itemMirageFairy;
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -173,6 +183,22 @@ public class ModMirageFairy2018
 
 		}
 
+		// 妖精関連
+		{
+
+			// 妖精
+			itemMirageFairy = new ItemMatrix(subItemsMirageFairy);
+			itemMirageFairy.setRegistryName(MODID, "mirage_fairy");
+			itemMirageFairy.setCreativeTab(creativeTab);
+			ForgeRegistries.ITEMS.register(itemMirageFairy);
+			subItemsMirageFairy.forEach(si -> {
+				if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemMirageFairy, si.id, new ModelResourceLocation(MODID + ":mirage_fairy"));
+				OreDictionary.registerOre(si.name, si.getItemStack());
+				OreDictionary.registerOre("mirageFairy", si.getItemStack());
+			});
+
+		}
+
 		// レシピ
 		{
 
@@ -194,6 +220,30 @@ public class ModMirageFairy2018
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+
+		if (event.getSide().isClient()) {
+			Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
+				@Override
+				public int colorMultiplier(ItemStack stack, int tintIndex)
+				{
+					if (stack.getMetadata() == 0) {
+						if (tintIndex == 0) return 0x957546;
+						if (tintIndex == 1) return 0x8888ff;
+						if (tintIndex == 2) return 0xFFB800;
+						if (tintIndex == 3) return 0xFFC42C;
+						if (tintIndex == 4) return 0xFFF8C3;
+					}
+					if (stack.getMetadata() == 1) {
+						if (tintIndex == 0) return 0xFFBE80;
+						if (tintIndex == 1) return 0x8888ff;
+						if (tintIndex == 2) return 0xAAAAAA;
+						if (tintIndex == 3) return 0xFFFFFF;
+						if (tintIndex == 4) return 0x585858;
+					}
+					return 0xffffff;
+				}
+			}, itemMirageFairy);
+		}
 
 	}
 
