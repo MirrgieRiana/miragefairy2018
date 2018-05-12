@@ -136,7 +136,7 @@ public class BlockDreamyFlower extends BlockBush
 			drops.add(ModMirageFairy2018.itemStackDreamyFlowerSeeds.copy());
 		}
 		for (int i = 0; i < additionalDropCount; i++) {
-			drops.add(ModMirageFairy2018.itemMaterials.getItemStack(ModMirageFairy2018.dustTinyMiragium));
+			drops.add(ModMirageFairy2018.dustTinyMiragium.copyItemStack());
 		}
 
 	}

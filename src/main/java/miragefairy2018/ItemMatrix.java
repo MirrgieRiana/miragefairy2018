@@ -34,15 +34,9 @@ public class ItemMatrix extends Item
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
-		subItems.stream()
-			.forEach(si -> {
-				items.add(new ItemStack(this, 1, si.id));
-			});
-	}
-
-	public ItemStack getItemStack(SubItem subItem)
-	{
-		return new ItemStack(this, 1, subItem.id);
+		subItems.forEach(si -> {
+			items.add(new ItemStack(this, 1, si.id));
+		});
 	}
 
 }
