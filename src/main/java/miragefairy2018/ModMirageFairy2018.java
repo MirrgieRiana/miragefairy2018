@@ -142,7 +142,7 @@ public class ModMirageFairy2018
 				new BiomeDecoratorFlowers(
 					LambdaUtil.process(new WorldGenBush(blockDreamyFlower, blockDreamyFlower.getState(3)), worldGenerator -> {
 						worldGenerator.blockCountMin = 1;
-						worldGenerator.blockCountMax = 3;
+						worldGenerator.blockCountMax = 5;
 					}),
 					0.25) {
 					@Override
@@ -151,6 +151,13 @@ public class ModMirageFairy2018
 						return super.canGenerate(biome) && BiomeDictionary.hasType(biome, BiomeDictionary.Type.MOUNTAIN);
 					}
 				});
+			listenersDecorateBiomeEventPost.add(
+				new BiomeDecoratorFlowers(
+					LambdaUtil.process(new WorldGenBush(blockDreamyFlower, blockDreamyFlower.getState(3)), worldGenerator -> {
+						worldGenerator.blockCountMin = 1;
+						worldGenerator.blockCountMax = 3;
+					}),
+					0.025));
 
 		}
 
