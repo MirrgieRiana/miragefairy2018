@@ -16,7 +16,7 @@ public class SubItemMatrix extends SubItem
 		super(
 			shape.id * shapeOffset + material.id,
 			shape.name + material.name,
-			material.resourceName + (shape.resourceName.isEmpty() ? "" : "_" + shape.resourceName));
+			material.resourceName + "_" + shape.resourceName);
 		this.shape = shape;
 		this.material = material;
 	}
