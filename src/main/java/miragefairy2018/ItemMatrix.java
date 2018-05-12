@@ -27,7 +27,7 @@ public class ItemMatrix extends Item
 		return "item." + subItems.stream()
 			.filter(si -> meta == si.id)
 			.findFirst()
-			.map(si -> si.name)
+			.map(si -> si.getResourceName())
 			.orElse("null");
 	}
 
