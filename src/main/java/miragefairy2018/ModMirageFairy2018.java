@@ -48,35 +48,35 @@ public class ModMirageFairy2018
 	//
 
 	public static final Category<Shape> shapes = new Category<>();
-	public static final Shape dust = CategoryItem.register(new Shape(0, "dust"), shapes);
-	public static final Shape dustSmall = CategoryItem.register(new Shape(1, "dustSmall"), shapes);
-	public static final Shape dustTiny = CategoryItem.register(new Shape(2, "dustTiny"), shapes);
-	public static final Shape dust72 = CategoryItem.register(new Shape(3, "dust72"), shapes);
-	public static final Shape ingot = CategoryItem.register(new Shape(4, "ingot"), shapes);
-	public static final Shape chunk = CategoryItem.register(new Shape(5, "chunk"), shapes);
-	public static final Shape nugget = CategoryItem.register(new Shape(6, "nugget"), shapes);
-	public static final Shape ingot72 = CategoryItem.register(new Shape(7, "ingot72"), shapes);
-	public static final Shape gem = CategoryItem.register(new Shape(8, "gem"), shapes);
-	public static final Shape sword = CategoryItem.register(new Shape(32, "sword"), shapes);
-	public static final Shape pickaxe = CategoryItem.register(new Shape(33, "pickaxe"), shapes);
-	public static final Shape axe = CategoryItem.register(new Shape(34, "axe"), shapes);
-	public static final Shape shovel = CategoryItem.register(new Shape(35, "shovel"), shapes);
-	public static final Shape hoe = CategoryItem.register(new Shape(36, "hoe"), shapes);
+	public static final Shape dust = CategoryItem.register(new Shape(0, "dust", "dust"), shapes);
+	public static final Shape dustSmall = CategoryItem.register(new Shape(1, "dustSmall", "small_dust"), shapes);
+	public static final Shape dustTiny = CategoryItem.register(new Shape(2, "dustTiny", "tiny_dust"), shapes);
+	public static final Shape dust72 = CategoryItem.register(new Shape(3, "dust72", "dust72"), shapes);
+	public static final Shape ingot = CategoryItem.register(new Shape(4, "ingot", "ingot"), shapes);
+	public static final Shape chunk = CategoryItem.register(new Shape(5, "chunk", "chunk"), shapes);
+	public static final Shape nugget = CategoryItem.register(new Shape(6, "nugget", "nugget"), shapes);
+	public static final Shape ingot72 = CategoryItem.register(new Shape(7, "ingot72", "ingot72"), shapes);
+	public static final Shape gem = CategoryItem.register(new Shape(8, "gem", ""), shapes);
+	public static final Shape sword = CategoryItem.register(new Shape(32, "sword", "sword"), shapes);
+	public static final Shape pickaxe = CategoryItem.register(new Shape(33, "pickaxe", "pickaxe"), shapes);
+	public static final Shape axe = CategoryItem.register(new Shape(34, "axe", "axe"), shapes);
+	public static final Shape shovel = CategoryItem.register(new Shape(35, "shovel", "shovel"), shapes);
+	public static final Shape hoe = CategoryItem.register(new Shape(36, "hoe", "hoe"), shapes);
 
 	public static final Category<Material> materials = new Category<>();
-	public static final Material miragium = CategoryItem.register(new Material(0, "Miragium"), materials);
-	public static final Material miragonite = CategoryItem.register(new Material(1, "Miragonite"), materials);
+	public static final Material miragium = CategoryItem.register(new Material(0, "Miragium", "miragium"), materials);
+	public static final Material miragonite = CategoryItem.register(new Material(1, "Miragonite", "miragonite"), materials);
 
 	public static final Category<SubItem> subItemsMaterial = new Category<>();
-	public static final SubItem dustMiragium = CategoryItem.register(new SubItem(dust, miragium), subItemsMaterial);
-	public static final SubItem dustTinyMiragium = CategoryItem.register(new SubItem(dustTiny, miragium), subItemsMaterial);
-	public static final SubItem ingotMiragium = CategoryItem.register(new SubItem(ingot, miragium), subItemsMaterial);
-	public static final SubItem gemMiragonite = CategoryItem.register(new SubItem(gem, miragonite), subItemsMaterial);
-	public static final SubItem swordMiragium = CategoryItem.register(new SubItem(sword, miragium), subItemsMaterial);
-	public static final SubItem pickaxeMiragium = CategoryItem.register(new SubItem(pickaxe, miragium), subItemsMaterial);
-	public static final SubItem axeMiragium = CategoryItem.register(new SubItem(axe, miragium), subItemsMaterial);
-	public static final SubItem shovelMiragium = CategoryItem.register(new SubItem(shovel, miragium), subItemsMaterial);
-	public static final SubItem hoeMiragium = CategoryItem.register(new SubItem(hoe, miragium), subItemsMaterial);
+	public static final SubItem dustMiragium = CategoryItem.register(new SubItemMatrix(dust, miragium), subItemsMaterial);
+	public static final SubItem dustTinyMiragium = CategoryItem.register(new SubItemMatrix(dustTiny, miragium), subItemsMaterial);
+	public static final SubItem ingotMiragium = CategoryItem.register(new SubItemMatrix(ingot, miragium), subItemsMaterial);
+	public static final SubItem gemMiragonite = CategoryItem.register(new SubItemMatrix(gem, miragonite), subItemsMaterial);
+	public static final SubItem swordMiragium = CategoryItem.register(new SubItemMatrix(sword, miragium), subItemsMaterial);
+	public static final SubItem pickaxeMiragium = CategoryItem.register(new SubItemMatrix(pickaxe, miragium), subItemsMaterial);
+	public static final SubItem axeMiragium = CategoryItem.register(new SubItemMatrix(axe, miragium), subItemsMaterial);
+	public static final SubItem shovelMiragium = CategoryItem.register(new SubItemMatrix(shovel, miragium), subItemsMaterial);
+	public static final SubItem hoeMiragium = CategoryItem.register(new SubItemMatrix(hoe, miragium), subItemsMaterial);
 
 	//
 
@@ -149,7 +149,7 @@ public class ModMirageFairy2018
 			itemMaterials.setCreativeTab(creativeTab);
 			ForgeRegistries.ITEMS.register(itemMaterials);
 			subItemsMaterial.forEach(si -> {
-				ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.getResourceName()));
+				ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.resourceName));
 				OreDictionary.registerOre(si.name, si.getItemStack());
 			});
 

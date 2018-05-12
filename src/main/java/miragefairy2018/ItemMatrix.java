@@ -8,9 +8,9 @@ import net.minecraft.util.NonNullList;
 public class ItemMatrix extends Item
 {
 
-	public Category<SubItem> subItems;
+	public Category<? extends SubItem> subItems;
 
-	public ItemMatrix(Category<SubItem> subItems)
+	public ItemMatrix(Category<? extends SubItem> subItems)
 	{
 		this.subItems = subItems;
 
@@ -27,7 +27,7 @@ public class ItemMatrix extends Item
 		return "item." + subItems.stream()
 			.filter(si -> meta == si.id)
 			.findFirst()
-			.map(si -> si.getResourceName())
+			.map(si -> si.resourceName)
 			.orElse("null");
 	}
 
