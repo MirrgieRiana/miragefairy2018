@@ -146,6 +146,7 @@ public class ModMirageFairy2018
 		// レシピ
 		{
 
+			GameRegistry.addSmelting(dustMiragium.getItemStack(), ingotMiragium.getItemStack(), 0);
 
 		}
 
