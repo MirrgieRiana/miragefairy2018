@@ -1,0 +1,33 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"II",
+		"IS",
+		" S"
+	],
+	"key": {
+		"I": {
+			"type": "forge:ore_dict",
+			"ore": "ingotMiragium"
+		},
+		"S": {
+			"type": "forge:ore_dict",
+			"ore": "stickWood"
+		}
+	},
+	"result": {
+		"item": "miragefairy2018:miragium_axe",
+		"nbt": {
+			"ench": [
+				{
+					"id": 70,
+					"lvl": 1
+				},
+				{
+					"id": 35,
+					"lvl": 3
+				}
+			]
+		}
+	}
+}

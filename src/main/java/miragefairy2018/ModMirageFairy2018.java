@@ -91,7 +91,15 @@ public class ModMirageFairy2018
 	//
 
 	public static ItemSwordMiragium itemSwordMiragium;
+	public static ItemPickaxeMiragium itemPickaxeMiragium;
+	public static ItemAxeMiragium itemAxeMiragium;
+	public static ItemShovelMiragium itemShovelMiragium;
+	public static ItemHoeMiragium itemHoeMiragium;
 	public static ItemStack itemStackSwordMiragium;
+	public static ItemStack itemStackPickaxeMiragium;
+	public static ItemStack itemStackAxeMiragium;
+	public static ItemStack itemStackShovelMiragium;
+	public static ItemStack itemStackHoeMiragium;
 
 	//
 
@@ -189,8 +197,39 @@ public class ModMirageFairy2018
 			itemSwordMiragium.setUnlocalizedName("miragium_sword");
 			ForgeRegistries.ITEMS.register(itemSwordMiragium);
 			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemSwordMiragium, 0, new ModelResourceLocation(MODID + ":miragium_sword"));
-
 			itemStackSwordMiragium = new ItemStack(itemSwordMiragium, 1, 0);
+
+			itemPickaxeMiragium = new ItemPickaxeMiragium();
+			itemPickaxeMiragium.setRegistryName(MODID, "miragium_pickaxe");
+			itemPickaxeMiragium.setCreativeTab(creativeTab);
+			itemPickaxeMiragium.setUnlocalizedName("miragium_pickaxe");
+			ForgeRegistries.ITEMS.register(itemPickaxeMiragium);
+			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemPickaxeMiragium, 0, new ModelResourceLocation(MODID + ":miragium_pickaxe"));
+			itemStackPickaxeMiragium = new ItemStack(itemPickaxeMiragium, 1, 0);
+
+			itemAxeMiragium = new ItemAxeMiragium();
+			itemAxeMiragium.setRegistryName(MODID, "miragium_axe");
+			itemAxeMiragium.setCreativeTab(creativeTab);
+			itemAxeMiragium.setUnlocalizedName("miragium_axe");
+			ForgeRegistries.ITEMS.register(itemAxeMiragium);
+			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemAxeMiragium, 0, new ModelResourceLocation(MODID + ":miragium_axe"));
+			itemStackAxeMiragium = new ItemStack(itemAxeMiragium, 1, 0);
+
+			itemShovelMiragium = new ItemShovelMiragium();
+			itemShovelMiragium.setRegistryName(MODID, "miragium_shovel");
+			itemShovelMiragium.setCreativeTab(creativeTab);
+			itemShovelMiragium.setUnlocalizedName("miragium_shovel");
+			ForgeRegistries.ITEMS.register(itemShovelMiragium);
+			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemShovelMiragium, 0, new ModelResourceLocation(MODID + ":miragium_shovel"));
+			itemStackShovelMiragium = new ItemStack(itemShovelMiragium, 1, 0);
+
+			itemHoeMiragium = new ItemHoeMiragium();
+			itemHoeMiragium.setRegistryName(MODID, "miragium_hoe");
+			itemHoeMiragium.setCreativeTab(creativeTab);
+			itemHoeMiragium.setUnlocalizedName("miragium_hoe");
+			ForgeRegistries.ITEMS.register(itemHoeMiragium);
+			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemHoeMiragium, 0, new ModelResourceLocation(MODID + ":miragium_hoe"));
+			itemStackHoeMiragium = new ItemStack(itemHoeMiragium, 1, 0);
 
 		}
 
