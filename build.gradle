@@ -60,8 +60,9 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    compile group: 'mirrg', name: 'mirrg.beryllium.struct', version: '1.0+'
+    compile group: 'mirrg', name: 'mirrg.beryllium.struct', version: '1.1+'
     compile group: 'mirrg', name: 'mirrg.beryllium.lang', version: '1.5+'
+    compile group: 'mirrg', name: 'mirrg.beryllium.swing', version: '1.1+'
 }
 
 processResources {
