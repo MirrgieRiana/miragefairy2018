@@ -117,7 +117,6 @@ public class ModMirageFairy2018
 	{
 
 		logger = event.getModLog();
-		ItemBuilder itemBuilder = new ItemBuilder(MODID, event.getSide());
 
 		// クリエイティブタブ登録
 		creativeTab = new CreativeTabs("MirageFairy2018") {
@@ -128,6 +127,8 @@ public class ModMirageFairy2018
 				return new ItemStack(itemDreamyFlowerSeeds);
 			}
 		};
+
+		ItemBuilder itemBuilder = new ItemBuilder(MODID, event.getSide(), creativeTab);
 
 		// ドリーミーフラワー関連
 		{
