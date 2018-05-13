@@ -59,11 +59,6 @@ public class ModMirageFairy2018
 	public static final Shape nugget = CategoryItem.register(new Shape(6, "nugget", "nugget"), shapes);
 	public static final Shape ingot72 = CategoryItem.register(new Shape(7, "ingot72", "ingot72"), shapes);
 	public static final Shape gem = CategoryItem.register(new Shape(8, "gem", "gem"), shapes);
-	public static final Shape sword = CategoryItem.register(new Shape(32, "sword", "sword"), shapes);
-	public static final Shape pickaxe = CategoryItem.register(new Shape(33, "pickaxe", "pickaxe"), shapes);
-	public static final Shape axe = CategoryItem.register(new Shape(34, "axe", "axe"), shapes);
-	public static final Shape shovel = CategoryItem.register(new Shape(35, "shovel", "shovel"), shapes);
-	public static final Shape hoe = CategoryItem.register(new Shape(36, "hoe", "hoe"), shapes);
 
 	public static final Category<Material> materials = new Category<>();
 	public static final Material miragium = CategoryItem.register(new Material(0, "Miragium", "miragium"), materials);
@@ -74,11 +69,6 @@ public class ModMirageFairy2018
 	public static final SubItem dustTinyMiragium = CategoryItem.register(new SubItemMatrix(dustTiny, miragium), subItemsMaterial);
 	public static final SubItem ingotMiragium = CategoryItem.register(new SubItemMatrix(ingot, miragium), subItemsMaterial);
 	public static final SubItem gemMiragonite = CategoryItem.register(new SubItemMatrix(gem, miragonite), subItemsMaterial);
-	public static final SubItem swordMiragium = CategoryItem.register(new SubItemMatrix(sword, miragium), subItemsMaterial);
-	public static final SubItem pickaxeMiragium = CategoryItem.register(new SubItemMatrix(pickaxe, miragium), subItemsMaterial);
-	public static final SubItem axeMiragium = CategoryItem.register(new SubItemMatrix(axe, miragium), subItemsMaterial);
-	public static final SubItem shovelMiragium = CategoryItem.register(new SubItemMatrix(shovel, miragium), subItemsMaterial);
-	public static final SubItem hoeMiragium = CategoryItem.register(new SubItemMatrix(hoe, miragium), subItemsMaterial);
 	public static final SubItem elementalEmblemLight = CategoryItem.register(new SubItem(64 * 64 + 0, "elementalEmblemLight", "light_elemental_emblem"), subItemsMaterial);
 	public static final SubItem elementalEmblemFire = CategoryItem.register(new SubItem(64 * 64 + 1, "elementalEmblemFire", "fire_elemental_emblem"), subItemsMaterial);
 	public static final SubItem elementalEmblemWind = CategoryItem.register(new SubItem(64 * 64 + 2, "elementalEmblemWind", "wind_elemental_emblem"), subItemsMaterial);
