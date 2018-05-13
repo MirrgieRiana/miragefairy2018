@@ -13,11 +13,18 @@ public class ItemBuilder
 
 	public final String modid;
 	public final Side side;
+	public final CreativeTabs creativeTab;
 
-	public ItemBuilder(String modid, Side side)
+	public ItemBuilder(String modid, Side side, CreativeTabs creativeTab)
 	{
 		this.modid = modid;
 		this.side = side;
+		this.creativeTab = creativeTab;
+	}
+
+	public <I extends Item> Builder<I> builder(I item, String oreName, String resourceName)
+	{
+		return new Builder<I>(item, oreName, resourceName);
 	}
 
 	public class Builder<I extends Item>
@@ -34,13 +41,7 @@ public class ItemBuilder
 			this.resourceName = resourceName;
 		}
 
-		public Builder<I> register()
-		{
-			ForgeRegistries.ITEMS.register(item);
-			return this;
-		}
-
-		public Builder<I> setCreativeTab(CreativeTabs creativeTab)
+		public Builder<I> setCreativeTab()
 		{
 			item.setCreativeTab(creativeTab);
 			return this;
@@ -52,15 +53,21 @@ public class ItemBuilder
 			return this;
 		}
 
-		public Builder<I> setCustomModelResourceLocation()
-		{
-			if (side.isClient()) ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(modid + ":" + resourceName));
-			return this;
-		}
-
 		public Builder<I> setRegistryName()
 		{
 			item.setRegistryName(modid, resourceName);
+			return this;
+		}
+
+		public Builder<I> register()
+		{
+			ForgeRegistries.ITEMS.register(item);
+			return this;
+		}
+
+		public Builder<I> setCustomModelResourceLocation()
+		{
+			if (side.isClient()) ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(modid + ":" + resourceName));
 			return this;
 		}
 
