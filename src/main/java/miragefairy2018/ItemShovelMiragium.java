@@ -10,8 +10,8 @@ public class ItemShovelMiragium extends ItemSpade
 	public ItemShovelMiragium()
 	{
 		super(ToolMaterial.IRON);
-		setMaxDamage(50);
-		efficiency = 2;
+		setMaxDamage(10);
+		efficiency = 1;
 	}
 
 	@Override

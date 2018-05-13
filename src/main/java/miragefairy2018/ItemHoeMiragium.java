@@ -8,7 +8,7 @@ public class ItemHoeMiragium extends ItemHoe
 	public ItemHoeMiragium()
 	{
 		super(ToolMaterial.IRON);
-		setMaxDamage(50);
+		setMaxDamage(10);
 	}
 
 	@Override

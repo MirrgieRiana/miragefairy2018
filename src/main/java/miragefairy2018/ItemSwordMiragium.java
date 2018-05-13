@@ -10,7 +10,7 @@ public class ItemSwordMiragium extends ItemSword
 	public ItemSwordMiragium()
 	{
 		super(ToolMaterial.IRON);
-		setMaxDamage(50);
+		setMaxDamage(10);
 	}
 
 	@Override

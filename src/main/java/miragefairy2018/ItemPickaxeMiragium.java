@@ -10,8 +10,8 @@ public class ItemPickaxeMiragium extends ItemPickaxe
 	public ItemPickaxeMiragium()
 	{
 		super(ToolMaterial.IRON);
-		setMaxDamage(50);
-		efficiency = 2;
+		setMaxDamage(10);
+		efficiency = 1;
 	}
 
 	@Override
