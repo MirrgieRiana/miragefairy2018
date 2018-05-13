@@ -109,6 +109,7 @@ public class ModMirageFairy2018
 	{
 
 		logger = event.getModLog();
+		ItemBuilder itemBuilder = new ItemBuilder(MODID, event.getSide());
 
 		// クリエイティブタブ登録
 		creativeTab = new CreativeTabs("MirageFairy2018") {
