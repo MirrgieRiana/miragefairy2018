@@ -1,6 +1,7 @@
 package miragefairy2018;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 import org.apache.logging.log4j.Logger;
@@ -91,9 +92,29 @@ public class ModMirageFairy2018
 
 	//
 
-	public static final Category<SubItem> subItemsMirageFairy = new Category<>();
-	public static final SubItem mirageFairyTorch = CategoryItem.register(new SubItem(0, "mirageFairyTorch", "torch_mirage_fairy"), subItemsMirageFairy);
-	public static final SubItem mirageFairyFeather = CategoryItem.register(new SubItem(1, "mirageFairyFeather", "feather_mirage_fairy"), subItemsMirageFairy);
+	public static final Category<SubItemMirageFairy> subItemsMirageFairy = new Category<>();
+
+	private static SubItemMirageFairy rMF(int id, EnumMirageFairy mirageFairy)
+	{
+		return CategoryItem.register(new SubItemMirageFairy(
+			id,
+			"mirageFairy" + mirageFairy.oreName,
+			mirageFairy.registryName + "_mirage_fairy",
+			mirageFairy.colorSet), subItemsMirageFairy);
+	}
+
+	public static final SubItemMirageFairy mirageFairyAir = rMF(0, EnumMirageFairy.air);
+	public static final SubItemMirageFairy mirageFairyWater = rMF(1, EnumMirageFairy.water);
+	public static final SubItemMirageFairy mirageFairyStone = rMF(2, EnumMirageFairy.stone);
+	public static final SubItemMirageFairy mirageFairyIron = rMF(3, EnumMirageFairy.iron);
+	public static final SubItemMirageFairy mirageFairyDiamond = rMF(4, EnumMirageFairy.diamond);
+	public static final SubItemMirageFairy mirageFairyRedstone = rMF(5, EnumMirageFairy.redstone);
+	public static final SubItemMirageFairy mirageFairyEnderman = rMF(6, EnumMirageFairy.enderman);
+	public static final SubItemMirageFairy mirageFairyLilac = rMF(7, EnumMirageFairy.lilac);
+	public static final SubItemMirageFairy mirageFairyTorch = rMF(8, EnumMirageFairy.torch);
+	public static final SubItemMirageFairy mirageFairyMoon = rMF(9, EnumMirageFairy.moon);
+	public static final SubItemMirageFairy mirageFairyNoon = rMF(10, EnumMirageFairy.noon);
+	public static final SubItemMirageFairy mirageFairyPlains = rMF(11, EnumMirageFairy.plains);
 	public static ItemMatrix itemMirageFairy;
 
 	public static final Category<SubItem> subItemsMirageWisp = new Category<>();
@@ -240,21 +261,16 @@ public class ModMirageFairy2018
 				@Override
 				public int colorMultiplier(ItemStack stack, int tintIndex)
 				{
-					if (stack.getMetadata() == 0) {
-						if (tintIndex == 0) return 0x957546;
-						if (tintIndex == 1) return 0x8888ff;
-						if (tintIndex == 2) return 0xFFB800;
-						if (tintIndex == 3) return 0xFFC42C;
-						if (tintIndex == 4) return 0xFFF8C3;
-					}
-					if (stack.getMetadata() == 1) {
-						if (tintIndex == 0) return 0xFFBE80;
-						if (tintIndex == 1) return 0x8888ff;
-						if (tintIndex == 2) return 0xAAAAAA;
-						if (tintIndex == 3) return 0xFFFFFF;
-						if (tintIndex == 4) return 0x585858;
-					}
-					return 0xffffff;
+					return subItemsMirageFairy.get(stack.getMetadata())
+						.flatMap(si -> {
+							if (tintIndex == 0) return Optional.of(si.colorSet.darker);
+							if (tintIndex == 1) return Optional.of(0x8888ff);
+							if (tintIndex == 2) return Optional.of(si.colorSet.skin);
+							if (tintIndex == 3) return Optional.of(si.colorSet.brighter);
+							if (tintIndex == 4) return Optional.of(si.colorSet.hair);
+							return Optional.empty();
+						})
+						.orElse(0xffffff);
 				}
 			}, itemMirageFairy);
 		}

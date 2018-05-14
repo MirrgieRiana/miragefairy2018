@@ -21,7 +21,17 @@ item.miragium_axe.name=Miragium Axe
 item.miragium_shovel.name=Miragium Shovel
 item.miragium_hoe.name=Miragium Hoe
 
+item.air_mirage_fairy.name=Airia
+item.water_mirage_fairy.name=Wateria
+item.stone_mirage_fairy.name=Stonia
+item.iron_mirage_fairy.name=Ironia
+item.diamond_mirage_fairy.name=Diamondia
+item.redstone_mirage_fairy.name=Redstonia
+item.enderman_mirage_fairy.name=Endermania
+item.lilac_mirage_fairy.name=Lilacia
 item.torch_mirage_fairy.name=Torchia
-item.feather_mirage_fairy.name=Featheria
+item.moon_mirage_fairy.name=Moonia
+item.noon_mirage_fairy.name=Noonia
+item.plains_mirage_fairy.name=Plainsia
 
 item.mirage_wisp.name=Mirage Wisp

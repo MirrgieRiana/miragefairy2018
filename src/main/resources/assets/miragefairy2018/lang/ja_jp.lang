@@ -21,7 +21,17 @@ item.miragium_axe.name=ミラジウムの斧
 item.miragium_shovel.name=ミラジウムのシャベル
 item.miragium_hoe.name=ミラジウムのクワ
 
+item.air_mirage_fairy.name=アイリャ
+item.water_mirage_fairy.name=ワテーリャ
+item.stone_mirage_fairy.name=ストーニャ
+item.iron_mirage_fairy.name=イローニャ
+item.diamond_mirage_fairy.name=ディアモンジャ
+item.redstone_mirage_fairy.name=レズトーニャ
+item.enderman_mirage_fairy.name=エンデルマーニャ
+item.lilac_mirage_fairy.name=リラーチャ
 item.torch_mirage_fairy.name=トルキャ
-item.feather_mirage_fairy.name=フェアテーリャ
+item.moon_mirage_fairy.name=モーニャ
+item.noon_mirage_fairy.name=ノーニャ
+item.plains_mirage_fairy.name=プラインシャ
 
 item.mirage_wisp.name=ミラージュウィスプ
