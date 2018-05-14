@@ -7,12 +7,10 @@ import org.apache.logging.log4j.Logger;
 
 import mirrg.beryllium.lang.LambdaUtil;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
@@ -99,7 +97,7 @@ public class ModMirageFairy2018
 	public static ItemMatrix itemMirageFairy;
 
 	public static final Category<SubItem> subItemsMirageWisp = new Category<>();
-	public static final SubItem mirageWispTier1 = CategoryItem.register(new SubItem(0, "mirageWispTier1", "tier1_mirage_wisp"), subItemsMirageWisp);
+	public static final SubItem mirageWisp = CategoryItem.register(new SubItem(0, "mirageWisp", "mirage_wisp"), subItemsMirageWisp);
 	public static ItemMatrix itemMirageWisp;
 
 	@EventHandler
@@ -130,15 +128,8 @@ public class ModMirageFairy2018
 			ForgeRegistries.BLOCKS.register(blockDreamyFlower);
 
 			// 種
-			itemDreamyFlowerSeeds = new ItemSeedDreamyFlower();
-			itemDreamyFlowerSeeds.setRegistryName(MODID, "dreamy_flower_seeds");
-			itemDreamyFlowerSeeds.setCreativeTab(creativeTab);
-			itemDreamyFlowerSeeds.setUnlocalizedName("dreamy_flower_seeds");
-			ForgeRegistries.ITEMS.register(itemDreamyFlowerSeeds);
-			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemDreamyFlowerSeeds, 0, new ModelResourceLocation(MODID + ":dreamy_flower_seeds"));
-
-			// スタック追加
-			itemStackDreamyFlowerSeeds = new ItemStack(itemDreamyFlowerSeeds, 1, 0);
+			itemStackDreamyFlowerSeeds = itemBuilder.builder(itemDreamyFlowerSeeds = new ItemSeedDreamyFlower(), "dreamy_flower_seeds")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().getItemStack();
 
 			// 地形生成
 			listenersDecorateBiomeEventPost.add(
@@ -168,59 +159,33 @@ public class ModMirageFairy2018
 		{
 
 			// 汎用素材アイテム
-			itemMaterials = new ItemMatrix(subItemsMaterial);
-			itemMaterials.setRegistryName(MODID, "materials");
-			itemMaterials.setCreativeTab(creativeTab);
-			ForgeRegistries.ITEMS.register(itemMaterials);
-			subItemsMaterial.forEach(si -> {
-				if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemMaterials, si.id, new ModelResourceLocation(MODID + ":" + si.resourceName));
-				OreDictionary.registerOre(si.name, si.getItemStack());
-			});
+			itemBuilder.builder(itemMaterials = new ItemMatrix(subItemsMaterial), "materials")
+				.setRegistryName().setCreativeTab().register().process(b -> {
+					subItemsMaterial.forEach(si -> {
+						b.setCustomModelResourceLocation(si.id, si.resourceName);
+						OreDictionary.registerOre(si.name, si.getItemStack());
+					});
+				});
 
 		}
 
 		// ミラージュ製ツール
 		{
 
-			itemSwordMiragium = new ItemSwordMiragium();
-			itemSwordMiragium.setRegistryName(MODID, "miragium_sword");
-			itemSwordMiragium.setCreativeTab(creativeTab);
-			itemSwordMiragium.setUnlocalizedName("miragium_sword");
-			ForgeRegistries.ITEMS.register(itemSwordMiragium);
-			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemSwordMiragium, 0, new ModelResourceLocation(MODID + ":miragium_sword"));
-			itemStackSwordMiragium = new ItemStack(itemSwordMiragium, 1, 0);
+			itemStackSwordMiragium = itemBuilder.builder(itemSwordMiragium = new ItemSwordMiragium(), "miragium_sword")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().getItemStack();
 
-			itemPickaxeMiragium = new ItemPickaxeMiragium();
-			itemPickaxeMiragium.setRegistryName(MODID, "miragium_pickaxe");
-			itemPickaxeMiragium.setCreativeTab(creativeTab);
-			itemPickaxeMiragium.setUnlocalizedName("miragium_pickaxe");
-			ForgeRegistries.ITEMS.register(itemPickaxeMiragium);
-			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemPickaxeMiragium, 0, new ModelResourceLocation(MODID + ":miragium_pickaxe"));
-			itemStackPickaxeMiragium = new ItemStack(itemPickaxeMiragium, 1, 0);
+			itemStackPickaxeMiragium = itemBuilder.builder(itemPickaxeMiragium = new ItemPickaxeMiragium(), "miragium_pickaxe")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().getItemStack();
 
-			itemAxeMiragium = new ItemAxeMiragium();
-			itemAxeMiragium.setRegistryName(MODID, "miragium_axe");
-			itemAxeMiragium.setCreativeTab(creativeTab);
-			itemAxeMiragium.setUnlocalizedName("miragium_axe");
-			ForgeRegistries.ITEMS.register(itemAxeMiragium);
-			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemAxeMiragium, 0, new ModelResourceLocation(MODID + ":miragium_axe"));
-			itemStackAxeMiragium = new ItemStack(itemAxeMiragium, 1, 0);
+			itemStackAxeMiragium = itemBuilder.builder(itemAxeMiragium = new ItemAxeMiragium(), "miragium_axe")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().getItemStack();
 
-			itemShovelMiragium = new ItemShovelMiragium();
-			itemShovelMiragium.setRegistryName(MODID, "miragium_shovel");
-			itemShovelMiragium.setCreativeTab(creativeTab);
-			itemShovelMiragium.setUnlocalizedName("miragium_shovel");
-			ForgeRegistries.ITEMS.register(itemShovelMiragium);
-			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemShovelMiragium, 0, new ModelResourceLocation(MODID + ":miragium_shovel"));
-			itemStackShovelMiragium = new ItemStack(itemShovelMiragium, 1, 0);
+			itemStackShovelMiragium = itemBuilder.builder(itemShovelMiragium = new ItemShovelMiragium(), "miragium_shovel")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().getItemStack();
 
-			itemHoeMiragium = new ItemHoeMiragium();
-			itemHoeMiragium.setRegistryName(MODID, "miragium_hoe");
-			itemHoeMiragium.setCreativeTab(creativeTab);
-			itemHoeMiragium.setUnlocalizedName("miragium_hoe");
-			ForgeRegistries.ITEMS.register(itemHoeMiragium);
-			if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemHoeMiragium, 0, new ModelResourceLocation(MODID + ":miragium_hoe"));
-			itemStackHoeMiragium = new ItemStack(itemHoeMiragium, 1, 0);
+			itemStackHoeMiragium = itemBuilder.builder(itemHoeMiragium = new ItemHoeMiragium(), "miragium_hoe")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().getItemStack();
 
 		}
 
@@ -228,25 +193,23 @@ public class ModMirageFairy2018
 		{
 
 			// 妖精
-			itemMirageFairy = new ItemMatrix(subItemsMirageFairy);
-			itemMirageFairy.setRegistryName(MODID, "mirage_fairy");
-			itemMirageFairy.setCreativeTab(creativeTab);
-			ForgeRegistries.ITEMS.register(itemMirageFairy);
-			subItemsMirageFairy.forEach(si -> {
-				if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemMirageFairy, si.id, new ModelResourceLocation(MODID + ":mirage_fairy"));
-				OreDictionary.registerOre(si.name, si.getItemStack());
-				OreDictionary.registerOre("mirageFairy", si.getItemStack());
-			});
+			itemBuilder.builder(itemMirageFairy = new ItemMatrix(subItemsMirageFairy), "mirage_fairy")
+				.setRegistryName().setCreativeTab().register().process(b -> {
+					subItemsMirageFairy.forEach(si -> {
+						b.setCustomModelResourceLocation(si.id, b.resourceName);
+						OreDictionary.registerOre(si.name, si.getItemStack());
+						OreDictionary.registerOre("mirageFairy", si.getItemStack());
+					});
+				});
 
 			// ウィスプ
-			itemMirageWisp = new ItemMatrix(subItemsMirageWisp);
-			itemMirageWisp.setRegistryName(MODID, "mirage_wisp");
-			itemMirageWisp.setCreativeTab(creativeTab);
-			ForgeRegistries.ITEMS.register(itemMirageWisp);
-			subItemsMirageWisp.forEach(si -> {
-				if (event.getSide().isClient()) ModelLoader.setCustomModelResourceLocation(itemMirageWisp, si.id, new ModelResourceLocation(MODID + ":mirage_wisp"));
-				OreDictionary.registerOre(si.name, si.getItemStack());
-			});
+			itemBuilder.builder(itemMirageWisp = new ItemMatrix(subItemsMirageWisp), "mirage_wisp")
+				.setRegistryName().setCreativeTab().register().process(b -> {
+					subItemsMirageWisp.forEach(si -> {
+						b.setCustomModelResourceLocation(si.id, b.resourceName);
+						OreDictionary.registerOre(si.name, si.getItemStack());
+					});
+				});
 
 		}
 

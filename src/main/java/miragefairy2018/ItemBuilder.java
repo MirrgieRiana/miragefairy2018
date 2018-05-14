@@ -1,5 +1,7 @@
 package miragefairy2018;
 
+import java.util.function.Consumer;
+
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -22,22 +24,20 @@ public class ItemBuilder
 		this.creativeTab = creativeTab;
 	}
 
-	public <I extends Item> Builder<I> builder(I item, String oreName, String resourceName)
+	public <I extends Item> Builder<I> builder(I item, String resourceName)
 	{
-		return new Builder<I>(item, oreName, resourceName);
+		return new Builder<I>(item, resourceName);
 	}
 
 	public class Builder<I extends Item>
 	{
 
 		public final I item;
-		public final String oreName;
 		public final String resourceName;
 
-		public Builder(I item, String oreName, String resourceName)
+		public Builder(I item, String resourceName)
 		{
 			this.item = item;
-			this.oreName = oreName;
 			this.resourceName = resourceName;
 		}
 
@@ -67,13 +67,24 @@ public class ItemBuilder
 
 		public Builder<I> setCustomModelResourceLocation()
 		{
-			if (side.isClient()) ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(modid + ":" + resourceName));
+			return setCustomModelResourceLocation(0, resourceName);
+		}
+
+		public Builder<I> setCustomModelResourceLocation(int meta, String resourceName)
+		{
+			if (side.isClient()) ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(modid + ":" + resourceName));
 			return this;
 		}
 
 		public ItemStack getItemStack()
 		{
 			return new ItemStack(item);
+		}
+
+		public Builder<I> process(Consumer<? super Builder<I>> consumer)
+		{
+			consumer.accept(this);
+			return this;
 		}
 
 	}
