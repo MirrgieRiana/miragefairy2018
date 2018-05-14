@@ -142,7 +142,7 @@ public class BlockDreamyFlower extends BlockBush
 			drops.add(ModMirageFairy2018.dustTinyMiragium.createItemStack());
 		}
 		for (int i = 0; i < additionalDropCount; i++) {
-			drops.add(ModMirageFairy2018.mirageWispTier1.createItemStack());
+			drops.add(ModMirageFairy2018.mirageWisp.createItemStack());
 		}
 
 	}

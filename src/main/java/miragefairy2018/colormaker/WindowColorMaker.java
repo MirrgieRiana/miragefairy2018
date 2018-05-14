@@ -260,7 +260,7 @@ public class WindowColorMaker extends JFrame
 		} catch (RuntimeException e) {
 			return;
 		}
-		if (colors.length != 0) return;
+		if (colors.length != 4) return;
 
 		setValue(colors, source);
 	}

@@ -263,9 +263,9 @@ public class ModMirageFairy2018
 				{
 					return subItemsMirageFairy.get(stack.getMetadata())
 						.flatMap(si -> {
-							if (tintIndex == 0) return Optional.of(si.colorSet.darker);
+							if (tintIndex == 0) return Optional.of(si.colorSet.skin);
 							if (tintIndex == 1) return Optional.of(0x8888ff);
-							if (tintIndex == 2) return Optional.of(si.colorSet.skin);
+							if (tintIndex == 2) return Optional.of(si.colorSet.darker);
 							if (tintIndex == 3) return Optional.of(si.colorSet.brighter);
 							if (tintIndex == 4) return Optional.of(si.colorSet.hair);
 							return Optional.empty();

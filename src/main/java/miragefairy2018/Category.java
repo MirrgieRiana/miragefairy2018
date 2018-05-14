@@ -16,7 +16,7 @@ public class Category<I>
 
 	public void register(int id, I item)
 	{
-		if (map.containsKey(id)) throw new RuntimeException();
+		if (map.containsKey(id)) throw new RuntimeException("duplicate id: " + id);
 		map.put(id, item);
 	}
 
