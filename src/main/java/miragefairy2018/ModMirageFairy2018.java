@@ -36,7 +36,14 @@ public class ModMirageFairy2018
 
 	public static Logger logger;
 
-	public static CreativeTabs creativeTab;
+	public static CreativeTabs creativeTab = new CreativeTabs("MirageFairy2018") {
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem()
+		{
+			return mirageFairyAir.getItemStack();
+		}
+	};
 
 	public static ArrayList<Consumer<DecorateBiomeEvent.Post>> listenersDecorateBiomeEventPost = new ArrayList<>();
 
@@ -126,16 +133,6 @@ public class ModMirageFairy2018
 	{
 
 		logger = event.getModLog();
-
-		// クリエイティブタブ登録
-		creativeTab = new CreativeTabs("MirageFairy2018") {
-			@Override
-			@SideOnly(Side.CLIENT)
-			public ItemStack getTabIconItem()
-			{
-				return new ItemStack(itemDreamyFlowerSeeds);
-			}
-		};
 
 		ItemBuilder itemBuilder = new ItemBuilder(MODID, event.getSide(), creativeTab);
 
