@@ -63,6 +63,7 @@ dependencies {
     compile group: 'mirrg', name: 'mirrg.beryllium.struct', version: '1.1+'
     compile group: 'mirrg', name: 'mirrg.beryllium.lang', version: '1.5+'
     compile group: 'mirrg', name: 'mirrg.beryllium.swing', version: '1.2+'
+    compile group: 'mirrg', name: 'mirrg.beryllium.event2', version: '1.0+'
 }
 
 processResources {
