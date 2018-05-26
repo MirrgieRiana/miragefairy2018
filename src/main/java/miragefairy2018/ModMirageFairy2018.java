@@ -6,6 +6,25 @@ import java.util.function.Consumer;
 
 import org.apache.logging.log4j.Logger;
 
+import miragefairy2018.contents.BiomeDecoratorFlowers;
+import miragefairy2018.contents.BlockDreamyFlower;
+import miragefairy2018.contents.ItemAxeMiragium;
+import miragefairy2018.contents.ItemHoeMiragium;
+import miragefairy2018.contents.ItemPickaxeMiragium;
+import miragefairy2018.contents.ItemSeedDreamyFlower;
+import miragefairy2018.contents.ItemShovelMiragium;
+import miragefairy2018.contents.ItemSwordMiragium;
+import miragefairy2018.contents.WorldGenBush;
+import miragefairy2018.core.matrix.Category;
+import miragefairy2018.core.matrix.CategoryItem;
+import miragefairy2018.core.matrix.ItemBuilder;
+import miragefairy2018.core.matrix.ItemMatrix;
+import miragefairy2018.core.matrix.Material;
+import miragefairy2018.core.matrix.Shape;
+import miragefairy2018.core.matrix.SubItem;
+import miragefairy2018.core.matrix.SubItemMatrix;
+import miragefairy2018.fairy.EnumMirageFairy;
+import miragefairy2018.fairy.SubItemMirageFairy;
 import mirrg.beryllium.lang.LambdaUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IItemColor;

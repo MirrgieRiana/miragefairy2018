@@ -1,4 +1,4 @@
-package miragefairy2018;
+package miragefairy2018.fairy;
 
 public enum EnumMirageFairy
 {

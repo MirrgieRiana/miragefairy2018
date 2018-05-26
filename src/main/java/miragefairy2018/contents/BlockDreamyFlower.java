@@ -1,7 +1,8 @@
-package miragefairy2018;
+package miragefairy2018.contents;
 
 import java.util.Random;
 
+import miragefairy2018.ModMirageFairy2018;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

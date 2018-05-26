@@ -1,5 +1,6 @@
-package miragefairy2018;
+package miragefairy2018.contents;
 
+import miragefairy2018.ModMirageFairy2018;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;

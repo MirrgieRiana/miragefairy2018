@@ -1,17 +1,17 @@
-package miragefairy2018;
+package miragefairy2018.contents;
 
-import net.minecraft.item.ItemAxe;
+import miragefairy2018.ModMirageFairy2018;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ItemAxeMiragium extends ItemAxe
+public class ItemSwordMiragium extends ItemSword
 {
 
-	public ItemAxeMiragium()
+	public ItemSwordMiragium()
 	{
 		super(ToolMaterial.IRON);
 		setMaxDamage(10);
-		efficiency = 1;
 	}
 
 	@Override

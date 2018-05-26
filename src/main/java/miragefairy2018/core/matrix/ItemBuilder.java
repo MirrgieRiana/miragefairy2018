@@ -1,4 +1,4 @@
-package miragefairy2018;
+package miragefairy2018.core.matrix;
 
 import java.util.function.Consumer;
 

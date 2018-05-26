@@ -1,4 +1,4 @@
-package miragefairy2018;
+package miragefairy2018.core.matrix;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

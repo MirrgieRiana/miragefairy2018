@@ -1,4 +1,6 @@
-package miragefairy2018;
+package miragefairy2018.fairy;
+
+import miragefairy2018.core.matrix.SubItem;
 
 public class SubItemMirageFairy extends SubItem
 {

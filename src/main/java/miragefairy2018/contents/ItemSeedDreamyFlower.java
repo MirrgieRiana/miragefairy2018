@@ -1,5 +1,6 @@
-package miragefairy2018;
+package miragefairy2018.contents;
 
+import miragefairy2018.ModMirageFairy2018;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;

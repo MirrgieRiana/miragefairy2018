@@ -1,4 +1,4 @@
-package miragefairy2018;
+package miragefairy2018.contents;
 
 import net.minecraft.item.ItemHoe;
 
