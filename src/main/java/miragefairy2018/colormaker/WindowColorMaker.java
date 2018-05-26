@@ -104,61 +104,66 @@ public class WindowColorMaker extends JFrame
 				}));
 
 				// 右側スライダーコンポーネント
-				c2.add(LambdaUtil.process(panelColorSliderBG = new PanelColorSlider(), c -> {
-					c.listeners.add(color -> {
-						if (isInProcessing) return;
-						setBackgroundColor(color, c);
-					});
-				}), LambdaUtil.process(new GridBagConstraints(), c -> {
-					c.fill = GridBagConstraints.HORIZONTAL;
-					c.insets = new Insets(0, 0, 5, 0);
-					c.gridx = 0;
-					c.gridy = 0;
-				}));
-				c2.add(LambdaUtil.process(panelColorSlider0 = new PanelColorSlider(), c -> {
-					c.listeners.add(color -> {
-						if (isInProcessing) return;
-						setValue(getColor(), c);
-					});
-				}), LambdaUtil.process(new GridBagConstraints(), c -> {
-					c.fill = GridBagConstraints.HORIZONTAL;
-					c.insets = new Insets(0, 0, 5, 0);
-					c.gridx = 0;
-					c.gridy = 1;
-				}));
-				c2.add(LambdaUtil.process(panelColorSlider1 = new PanelColorSlider(), c -> {
-					c.listeners.add(color -> {
-						if (isInProcessing) return;
-						setValue(getColor(), c);
-					});
-				}), LambdaUtil.process(new GridBagConstraints(), c -> {
-					c.fill = GridBagConstraints.HORIZONTAL;
-					c.insets = new Insets(0, 0, 5, 0);
-					c.gridx = 0;
-					c.gridy = 2;
-				}));
-				c2.add(LambdaUtil.process(panelColorSlider2 = new PanelColorSlider(), c -> {
-					c.listeners.add(color -> {
-						if (isInProcessing) return;
-						setValue(getColor(), c);
-					});
-				}), LambdaUtil.process(new GridBagConstraints(), c -> {
-					c.fill = GridBagConstraints.HORIZONTAL;
-					c.insets = new Insets(0, 0, 5, 0);
-					c.gridx = 0;
-					c.gridy = 3;
-				}));
-				c2.add(LambdaUtil.process(panelColorSlider3 = new PanelColorSlider(), c -> {
-					c.listeners.add(color -> {
-						if (isInProcessing) return;
-						setValue(getColor(), c);
-					});
-				}), LambdaUtil.process(new GridBagConstraints(), c -> {
-					c.insets = new Insets(0, 0, 5, 0);
-					c.fill = GridBagConstraints.HORIZONTAL;
-					c.gridx = 0;
-					c.gridy = 4;
-				}));
+				c2.add(ContainerUtil.createTitledGroup("Background", LambdaUtil.process(
+					panelColorSliderBG = new PanelColorSlider(), c -> {
+						c.listeners.add(color -> {
+							if (isInProcessing) return;
+							setBackgroundColor(color, c);
+						});
+					})), LambdaUtil.process(new GridBagConstraints(), c -> {
+						c.fill = GridBagConstraints.HORIZONTAL;
+						c.insets = new Insets(0, 0, 5, 0);
+						c.gridx = 0;
+						c.gridy = 0;
+					}));
+				c2.add(ContainerUtil.createTitledGroup("Skin", LambdaUtil.process(
+					panelColorSlider0 = new PanelColorSlider(), c -> {
+						c.listeners.add(color -> {
+							if (isInProcessing) return;
+							setValue(getColor(), c);
+						});
+					})), LambdaUtil.process(new GridBagConstraints(), c -> {
+						c.fill = GridBagConstraints.HORIZONTAL;
+						c.insets = new Insets(0, 0, 5, 0);
+						c.gridx = 0;
+						c.gridy = 1;
+					}));
+				c2.add(ContainerUtil.createTitledGroup("Darker", LambdaUtil.process(
+					panelColorSlider1 = new PanelColorSlider(), c -> {
+						c.listeners.add(color -> {
+							if (isInProcessing) return;
+							setValue(getColor(), c);
+						});
+					})), LambdaUtil.process(new GridBagConstraints(), c -> {
+						c.fill = GridBagConstraints.HORIZONTAL;
+						c.insets = new Insets(0, 0, 5, 0);
+						c.gridx = 0;
+						c.gridy = 2;
+					}));
+				c2.add(ContainerUtil.createTitledGroup("Brighter", LambdaUtil.process(
+					panelColorSlider2 = new PanelColorSlider(), c -> {
+						c.listeners.add(color -> {
+							if (isInProcessing) return;
+							setValue(getColor(), c);
+						});
+					})), LambdaUtil.process(new GridBagConstraints(), c -> {
+						c.fill = GridBagConstraints.HORIZONTAL;
+						c.insets = new Insets(0, 0, 5, 0);
+						c.gridx = 0;
+						c.gridy = 3;
+					}));
+				c2.add(ContainerUtil.createTitledGroup("Hair", LambdaUtil.process(
+					panelColorSlider3 = new PanelColorSlider(), c -> {
+						c.listeners.add(color -> {
+							if (isInProcessing) return;
+							setValue(getColor(), c);
+						});
+					})), LambdaUtil.process(new GridBagConstraints(), c -> {
+						c.insets = new Insets(0, 0, 5, 0);
+						c.fill = GridBagConstraints.HORIZONTAL;
+						c.gridx = 0;
+						c.gridy = 4;
+					}));
 
 				// 右側色構文
 				c2.add(LambdaUtil.process(textFieldColors = new JTextField(), c -> {
