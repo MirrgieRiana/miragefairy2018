@@ -12,6 +12,7 @@ public class ModuleMain
 {
 
 	public static Logger logger;
+	public static Side side;
 
 	public static CreativeTabs creativeTab = new CreativeTabs("MirageFairy2018") {
 		@Override
@@ -26,6 +27,7 @@ public class ModuleMain
 	{
 		erMod.preInit.register(e -> {
 			logger = e.getModLog();
+			side = e.getSide();
 		});
 	}
 

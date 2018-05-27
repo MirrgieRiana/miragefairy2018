@@ -1,0 +1,8 @@
+{
+    "parent": "miragefairy2018:block/block_multi",
+    "textures": {
+        "particle": "blocks/stone",
+        "base": "blocks/stone",
+        "overlay": "miragefairy2018:blocks/miragonite_ore"
+    }
+}

@@ -40,9 +40,9 @@ public class ModMirageFairy2018
 
 		Builder builder = new Builder(MODID, event.getSide(), ModuleMain.creativeTab);
 
-		erMod.registerItem.accept(builder);
-
 		erMod.registerBlock.accept(builder);
+
+		erMod.registerItem.accept(builder);
 
 		erMod.createItemStack.accept(builder);
 

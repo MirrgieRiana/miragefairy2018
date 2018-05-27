@@ -8,6 +8,9 @@ item.miragium_tiny_dust.name=Tiny Pile of Miragium Dust
 item.miragium_ingot.name=Miragium Ingot
 item.miragonite_gem.name=Miragonite
 
+tile.miragium_ore.name=Miragium Ore
+tile.miragonite_ore.name=Miragonite Ore
+
 item.light_elemental_emblem.name=Light Elemental Emblem
 item.fire_elemental_emblem.name=Fire Elemental Emblem
 item.wind_elemental_emblem.name=Wind Elemental Emblem

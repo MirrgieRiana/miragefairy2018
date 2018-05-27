@@ -8,6 +8,9 @@ item.miragium_tiny_dust.name=ミラジウムの微粉
 item.miragium_ingot.name=ミラジウムインゴット
 item.miragonite_gem.name=紅天石
 
+tile.miragium_ore.name=ミラジウム鉱石
+tile.miragonite_ore.name=紅天石鉱石
+
 item.light_elemental_emblem.name=光の属性表象
 item.fire_elemental_emblem.name=火の属性表象
 item.wind_elemental_emblem.name=風の属性表象
