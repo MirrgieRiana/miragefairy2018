@@ -204,6 +204,9 @@ public class ModMirageFairy2018
 					});
 				});
 
+			GameRegistry.addSmelting(dustMiragium.getItemStack(), ingotMiragium.getItemStack(), 0);
+			GameRegistry.addSmelting(gemMiragonite.getItemStack(), dustTinyMiragium.getItemStack(), 0);
+
 		}
 
 		// ミラージュ製ツール
@@ -247,14 +250,6 @@ public class ModMirageFairy2018
 						OreDictionary.registerOre(si.name, si.getItemStack());
 					});
 				});
-
-		}
-
-		// レシピ
-		{
-
-			GameRegistry.addSmelting(dustMiragium.getItemStack(), ingotMiragium.getItemStack(), 0);
-			GameRegistry.addSmelting(gemMiragonite.getItemStack(), dustTinyMiragium.getItemStack(), 0);
 
 		}
 
