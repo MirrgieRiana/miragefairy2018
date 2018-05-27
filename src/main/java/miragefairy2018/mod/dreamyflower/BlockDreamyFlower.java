@@ -4,6 +4,7 @@ import java.util.Random;
 
 import miragefairy2018.mod.fairy.ModuleFairy;
 import miragefairy2018.mod.material.ModuleMaterial;
+import mirrg.beryllium.lang.NumberUtil;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -11,7 +12,6 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -44,13 +44,13 @@ public class BlockDreamyFlower extends BlockBush
 	@Override
 	public int getMetaFromState(IBlockState state)
 	{
-		return state.getValue(AGE);
+		return NumberUtil.trim(state.getValue(AGE), 0, 3);
 	}
 
 	@Override
 	public IBlockState getStateFromMeta(int meta)
 	{
-		return getDefaultState().withProperty(AGE, meta);
+		return getDefaultState().withProperty(AGE, NumberUtil.trim(meta, 0, 3));
 	}
 
 	@Override
@@ -147,17 +147,6 @@ public class BlockDreamyFlower extends BlockBush
 			drops.add(ModuleFairy.mirageWisp.createItemStack());
 		}
 
-	}
-
-	//
-
-	@Override
-	public void getSubBlocks(CreativeTabs creativeTab, NonNullList<ItemStack> items)
-	{
-		items.add(new ItemStack(this, 1, 0));
-		items.add(new ItemStack(this, 1, 1));
-		items.add(new ItemStack(this, 1, 2));
-		items.add(new ItemStack(this, 1, 3));
 	}
 
 }
