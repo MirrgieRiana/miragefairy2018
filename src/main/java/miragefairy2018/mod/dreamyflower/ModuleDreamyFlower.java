@@ -36,8 +36,8 @@ public class ModuleDreamyFlower
 		erMod.registerItem.register(b -> {
 
 			// 種
-			b.new ItemBuilder<>(itemDreamyFlowerSeeds = new ItemSeedDreamyFlower(), "dreamy_flower_seeds")
-				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation();
+			itemDreamyFlowerSeeds = b.new ItemBuilder<>(new ItemSeedDreamyFlower(), "dreamy_flower_seeds")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().get();
 
 		});
 		erMod.createItemStack.register(b -> {
