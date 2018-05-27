@@ -2,10 +2,10 @@ package miragefairy2018.colormaker;
 
 import java.io.IOException;
 
-import miragefairy2018.ModMirageFairy2018;
 import miragefairy2018.colormaker.core.ColorIdentifier;
 import miragefairy2018.colormaker.core.ImageLayer;
 import miragefairy2018.colormaker.core.ImageLoader;
+import miragefairy2018.mod.ModMirageFairy2018;
 import mirrg.beryllium.struct.ImmutableArray;
 
 public class MainColorMaker
