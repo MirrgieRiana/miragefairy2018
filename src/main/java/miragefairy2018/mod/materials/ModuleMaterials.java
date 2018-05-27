@@ -1,6 +1,7 @@
 package miragefairy2018.mod.materials;
 
 import miragefairy2018.lib.matrix.CategoryMatrix;
+import miragefairy2018.lib.matrix.SubtypeMatrix;
 import miragefairy2018.lib.multi.ItemMulti;
 import miragefairy2018.lib.multi.Subtype;
 import miragefairy2018.lib.registry.Category;
@@ -27,10 +28,10 @@ public class ModuleMaterials
 	public static final Material miragonite = materials.register(new Material(1, "Miragonite", "miragonite"));
 
 	public static final CategoryMatrix<Shape, Material> subtypesMaterial = new CategoryMatrix<>(64);
-	public static final Subtype dustMiragium = subtypesMaterial.register(dust, miragium);
-	public static final Subtype dustTinyMiragium = subtypesMaterial.register(dustTiny, miragium);
-	public static final Subtype ingotMiragium = subtypesMaterial.register(ingot, miragium);
-	public static final Subtype gemMiragonite = subtypesMaterial.register(gem, miragonite);
+	public static final SubtypeMatrix<Shape, Material> dustMiragium = subtypesMaterial.register(dust, miragium);
+	public static final SubtypeMatrix<Shape, Material> dustTinyMiragium = subtypesMaterial.register(dustTiny, miragium);
+	public static final SubtypeMatrix<Shape, Material> ingotMiragium = subtypesMaterial.register(ingot, miragium);
+	public static final SubtypeMatrix<Shape, Material> gemMiragonite = subtypesMaterial.register(gem, miragonite);
 
 	public static ItemMulti itemMaterials;
 
