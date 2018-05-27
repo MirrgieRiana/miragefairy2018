@@ -1,12 +1,13 @@
-package miragefairy2018.lib.matrix;
+package miragefairy2018.lib.multi;
 
+import miragefairy2018.lib.registry.CategoryItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class SubItem extends CategoryItem
+public class Subtype extends CategoryItem
 {
 
-	public SubItem(int id, String name, String resourceName)
+	public Subtype(int id, String name, String resourceName)
 	{
 		super(id, name, resourceName);
 	}
@@ -15,7 +16,7 @@ public class SubItem extends CategoryItem
 
 	private Item item;
 
-	public void setItem(Item item)
+	void setItem(Item item)
 	{
 		this.item = item;
 	}

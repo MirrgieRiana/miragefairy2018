@@ -1,4 +1,4 @@
-package miragefairy2018.lib.matrix;
+package miragefairy2018.lib.registry;
 
 import java.util.ArrayList;
 import java.util.Map.Entry;
@@ -9,15 +9,16 @@ import java.util.stream.Stream;
 
 import mirrg.beryllium.struct.ImmutableArray;
 
-public class Category<I>
+public class Category<I extends CategoryItem>
 {
 
 	private TreeMap<Integer, I> map = new TreeMap<>();
 
-	public void register(int id, I item)
+	public <I2 extends I> I2 register(I2 item)
 	{
-		if (map.containsKey(id)) throw new RuntimeException("duplicate id: " + id);
-		map.put(id, item);
+		if (map.containsKey(item.id)) throw new RuntimeException("duplicate id: " + item.id);
+		map.put(item.id, item);
+		return item;
 	}
 
 	private ImmutableArray<Optional<I>> table;

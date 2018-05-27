@@ -1,6 +1,6 @@
 package miragefairy2018.mod.tool;
 
-import miragefairy2018.mod.material.ModuleMaterial;
+import miragefairy2018.mod.materials.ModuleMaterials;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -30,7 +30,7 @@ public class ItemAxeMiragium extends ItemAxe
 	@Override
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
 	{
-		return OreDictionary.itemMatches(ModuleMaterial.ingotMiragium.getItemStack(), repair, false);
+		return OreDictionary.itemMatches(ModuleMaterials.ingotMiragium.getItemStack(), repair, false);
 	}
 
 }

@@ -1,4 +1,4 @@
-package miragefairy2018.lib.matrix;
+package miragefairy2018.lib.registry;
 
 public class CategoryItem
 {
@@ -12,12 +12,6 @@ public class CategoryItem
 		this.id = id;
 		this.name = name;
 		this.resourceName = resourceName;
-	}
-
-	public static <I extends CategoryItem> I register(I item, Category<I> metaCategory)
-	{
-		metaCategory.register(item.id, item);
-		return item;
 	}
 
 }

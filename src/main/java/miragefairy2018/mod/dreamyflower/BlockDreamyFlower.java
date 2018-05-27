@@ -3,7 +3,7 @@ package miragefairy2018.mod.dreamyflower;
 import java.util.Random;
 
 import miragefairy2018.mod.fairy.ModuleFairy;
-import miragefairy2018.mod.material.ModuleMaterial;
+import miragefairy2018.mod.materials.ModuleMaterials;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -141,7 +141,7 @@ public class BlockDreamyFlower extends BlockBush
 			drops.add(ModuleDreamyFlower.itemStackDreamyFlowerSeeds.copy());
 		}
 		for (int i = 0; i < dropCount; i++) {
-			drops.add(ModuleMaterial.dustTinyMiragium.createItemStack());
+			drops.add(ModuleMaterials.dustTinyMiragium.createItemStack());
 		}
 		for (int i = 0; i < additionalDropCount; i++) {
 			drops.add(ModuleFairy.mirageWisp.createItemStack());
