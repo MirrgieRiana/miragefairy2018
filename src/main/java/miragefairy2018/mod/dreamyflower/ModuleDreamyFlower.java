@@ -24,6 +24,13 @@ public class ModuleDreamyFlower
 
 	public static void init(EventRegistryMod erMod)
 	{
+		erMod.registerItem.register(b -> {
+
+			// 種
+			itemDreamyFlowerSeeds = b.new ItemBuilder<>(new ItemSeedDreamyFlower(), "dreamy_flower_seeds")
+				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().get();
+
+		});
 		erMod.registerBlock.register(b -> {
 
 			// ブロック
@@ -31,13 +38,6 @@ public class ModuleDreamyFlower
 			blockDreamyFlower.setRegistryName(ModMirageFairy2018.MODID, "dreamy_flower");
 			blockDreamyFlower.setCreativeTab(ModuleMain.creativeTab);
 			ForgeRegistries.BLOCKS.register(blockDreamyFlower);
-
-		});
-		erMod.registerItem.register(b -> {
-
-			// 種
-			itemDreamyFlowerSeeds = b.new ItemBuilder<>(new ItemSeedDreamyFlower(), "dreamy_flower_seeds")
-				.setRegistryName().setCreativeTab().setUnlocalizedName().register().setCustomModelResourceLocation().get();
 
 		});
 		erMod.createItemStack.register(b -> {
