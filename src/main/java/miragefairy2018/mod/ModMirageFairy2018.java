@@ -3,7 +3,7 @@ package miragefairy2018.mod;
 import miragefairy2018.lib.util.Builder;
 import miragefairy2018.mod.dreamyflower.ModuleDreamyFlower;
 import miragefairy2018.mod.fairy.ModuleFairy;
-import miragefairy2018.mod.materials.ModuleMaterials;
+import miragefairy2018.mod.material.ModuleMaterial;
 import miragefairy2018.mod.ore.ModuleOre;
 import miragefairy2018.mod.tool.ModuleTool;
 import net.minecraftforge.fml.common.Mod;
@@ -25,7 +25,7 @@ public class ModMirageFairy2018
 	public ModMirageFairy2018()
 	{
 		ModuleMain.init(erMod);
-		ModuleMaterials.init(erMod);
+		ModuleMaterial.init(erMod);
 		ModuleOre.init(erMod);
 		ModuleTool.init(erMod);
 		ModuleDreamyFlower.init(erMod);

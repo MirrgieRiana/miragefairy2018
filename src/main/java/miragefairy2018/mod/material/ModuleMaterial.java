@@ -1,4 +1,4 @@
-package miragefairy2018.mod.materials;
+package miragefairy2018.mod.material;
 
 import miragefairy2018.lib.matrix.CategoryMatrix;
 import miragefairy2018.lib.matrix.SubtypeMatrix;
@@ -9,7 +9,7 @@ import miragefairy2018.mod.EventRegistryMod;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class ModuleMaterials
+public class ModuleMaterial
 {
 
 	public static final Category<Shape> shapes = new Category<>();

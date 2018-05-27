@@ -1,4 +1,4 @@
-package miragefairy2018.mod.materials;
+package miragefairy2018.mod.material;
 
 import miragefairy2018.lib.registry.CategoryItem;
 
