@@ -71,7 +71,7 @@ public class ModuleDreamyFlower
 
 			MinecraftForge.EVENT_BUS.register(new Object() {
 				@SubscribeEvent
-				public void onDecorateBiomeEventPost(DecorateBiomeEvent.Post event)
+				public void accept(DecorateBiomeEvent.Post event)
 				{
 					decoratorDreamyFlower.decorate(event);
 					decoratorDreamyFlowerMountain.decorate(event);
