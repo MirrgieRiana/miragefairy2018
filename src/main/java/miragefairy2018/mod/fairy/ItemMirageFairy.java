@@ -4,6 +4,8 @@ import static miragefairy2018.mod.fairy.EnumManaType.*;
 import static net.minecraft.util.text.TextFormatting.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import miragefairy2018.lib.multi.ItemMulti;
 import miragefairy2018.lib.registry.Category;
@@ -32,6 +34,31 @@ public class ItemMirageFairy extends ItemMulti<SubtypeMirageFairy>
 
 		Potential potential = subtype.mirageFairy.getPotential();
 
+		// TODO
+		String stringRare = IntStream.range(0, subtype.mirageFairy.getRare()).mapToObj(i -> "★").collect(Collectors.joining());
+		TextFormatting colorRare;
+		switch (subtype.mirageFairy.getRare()) {
+			case 1:
+				colorRare = GRAY;
+				break;
+			case 2:
+				colorRare = RED;
+				break;
+			case 3:
+				colorRare = BLUE;
+				break;
+			case 4:
+				colorRare = GREEN;
+				break;
+			case 5:
+				colorRare = YELLOW;
+				break;
+			default:
+				colorRare = GRAY;
+				break;
+		}
+
+		tooltip.add("" + "Type: " + WHITE + subtype.mirageFairy.name() + " " + colorRare + stringRare);
 		tooltip.add("      " + format(light, potential));
 		tooltip.add("  " + format(fire, potential) + "      " + format(air, potential));
 		tooltip.add("  " + format(earth, potential) + "      " + format(water, potential));
