@@ -23,6 +23,11 @@ public class ItemMulti<I extends Subtype> extends Item
 		this.setMaxDamage(0);
 	}
 
+	public Optional<I> getSubtype(ItemStack stack)
+	{
+		return subtypes.get(stack.getMetadata());
+	}
+
 	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
