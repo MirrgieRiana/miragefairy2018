@@ -39,9 +39,9 @@ public class ModuleMaterial
 
 	public static final Category<Subtype> subItemsMiddleMaterials = new Category<>();
 	public static final Subtype elementalEmblemLight = subItemsMiddleMaterials.register(new Subtype(0, "elementalEmblemLight", "light_elemental_emblem"));
-	public static final Subtype elementalEmblemWind = subItemsMiddleMaterials.register(new Subtype(1, "elementalEmblemWind", "wind_elemental_emblem"));
+	public static final Subtype elementalEmblemAir = subItemsMiddleMaterials.register(new Subtype(1, "elementalEmblemAir", "air_elemental_emblem"));
 	public static final Subtype elementalEmblemWater = subItemsMiddleMaterials.register(new Subtype(2, "elementalEmblemWater", "water_elemental_emblem"));
-	public static final Subtype elementalEmblemShadow = subItemsMiddleMaterials.register(new Subtype(3, "elementalEmblemShadow", "shadow_elemental_emblem"));
+	public static final Subtype elementalEmblemDarkness = subItemsMiddleMaterials.register(new Subtype(3, "elementalEmblemDarkness", "darkness_elemental_emblem"));
 	public static final Subtype elementalEmblemEarth = subItemsMiddleMaterials.register(new Subtype(4, "elementalEmblemEarth", "earth_elemental_emblem"));
 	public static final Subtype elementalEmblemFire = subItemsMiddleMaterials.register(new Subtype(5, "elementalEmblemFire", "fire_elemental_emblem"));
 

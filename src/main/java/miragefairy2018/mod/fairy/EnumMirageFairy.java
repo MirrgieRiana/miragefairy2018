@@ -182,26 +182,26 @@ public enum EnumMirageFairy
 		public final double sum;
 
 		public final double light;
-		public final double wind;
+		public final double air;
 		public final double water;
-		public final double shadow;
+		public final double darkness;
 		public final double earth;
 		public final double fire;
 
-		public Potential(double power, double ratioLight, double ratioWind, double ratioWater, double ratioShadow, double ratioEarth, double ratioFire)
+		public Potential(double power, double ratioLight, double ratioWind, double ratioWater, double ratioDarkness, double ratioEarth, double ratioFire)
 		{
 
 			// ステータス倍率
 			double power2 = 10 * Math.pow(10, power / 100.0);
 
 			// 比率合計
-			sum = ratioLight + ratioWind + ratioWater + ratioShadow + ratioEarth + ratioFire;
+			sum = ratioLight + ratioWind + ratioWater + ratioDarkness + ratioEarth + ratioFire;
 
 			// ステータス: 0 ~ power2
 			light = power2 * ratioLight / sum;
-			wind = power2 * ratioWind / sum;
+			air = power2 * ratioWind / sum;
 			water = power2 * ratioWater / sum;
-			shadow = power2 * ratioShadow / sum;
+			darkness = power2 * ratioDarkness / sum;
 			earth = power2 * ratioEarth / sum;
 			fire = power2 * ratioFire / sum;
 
@@ -212,12 +212,12 @@ public enum EnumMirageFairy
 			switch (manaType) {
 				case light:
 					return light;
-				case wind:
-					return wind;
+				case air:
+					return air;
 				case water:
 					return water;
-				case shadow:
-					return shadow;
+				case darkness:
+					return darkness;
 				case earth:
 					return earth;
 				case fire:
@@ -248,17 +248,17 @@ public enum EnumMirageFairy
 		return cost;
 	}
 
-	private void setStatus(int rare, double power, double ratioLight, double ratioWind, double ratioWater, double ratioShadow, double ratioEarth, double ratioFire)
+	private void setStatus(int rare, double power, double ratioLight, double ratioAir, double ratioWater, double ratioDarkness, double ratioEarth, double ratioFire)
 	{
 		this.rare = rare;
 
-		potential = new Potential(power, ratioLight, ratioWind, ratioWater, ratioShadow, ratioEarth, ratioFire);
+		potential = new Potential(power, ratioLight, ratioAir, ratioWater, ratioDarkness, ratioEarth, ratioFire);
 
 		// 集中度: 1/6 ~ 1
 		double density = (potential.light * potential.light +
-			potential.wind * potential.wind +
+			potential.air * potential.air +
 			potential.water * potential.water +
-			potential.shadow * potential.shadow +
+			potential.darkness * potential.darkness +
 			potential.earth * potential.earth +
 			potential.fire * potential.fire) / (potential.sum * potential.sum);
 

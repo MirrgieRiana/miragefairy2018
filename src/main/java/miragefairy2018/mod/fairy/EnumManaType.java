@@ -5,9 +5,9 @@ import net.minecraft.util.text.TextFormatting;
 public enum EnumManaType
 {
 	light(TextFormatting.WHITE),
-	wind(TextFormatting.GREEN),
+	air(TextFormatting.GREEN),
 	water(TextFormatting.BLUE),
-	shadow(TextFormatting.DARK_GRAY),
+	darkness(TextFormatting.DARK_GRAY),
 	earth(TextFormatting.YELLOW),
 	fire(TextFormatting.RED),
 	;

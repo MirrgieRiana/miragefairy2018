@@ -13,10 +13,10 @@ tile.miragonite_ore.name=Miragonite Ore
 
 item.light_elemental_emblem.name=Light Elemental Emblem
 item.fire_elemental_emblem.name=Fire Elemental Emblem
-item.wind_elemental_emblem.name=Wind Elemental Emblem
+item.air_elemental_emblem.name=Air Elemental Emblem
 item.earth_elemental_emblem.name=Earth Elemental Emblem
 item.water_elemental_emblem.name=Water Elemental Emblem
-item.shadow_elemental_emblem.name=Shadow Elemental Emblem
+item.darkness_elemental_emblem.name=Darkness Elemental Emblem
 
 item.miragium_sword.name=Miragium Sword
 item.miragium_pickaxe.name=Miragium Pickaxe

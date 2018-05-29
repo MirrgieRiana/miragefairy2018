@@ -13,10 +13,10 @@ tile.miragonite_ore.name=紅天石鉱石
 
 item.light_elemental_emblem.name=光の属性表象
 item.fire_elemental_emblem.name=火の属性表象
-item.wind_elemental_emblem.name=風の属性表象
+item.air_elemental_emblem.name=風の属性表象
 item.earth_elemental_emblem.name=土の属性表象
 item.water_elemental_emblem.name=水の属性表象
-item.shadow_elemental_emblem.name=闇の属性表象
+item.darkness_elemental_emblem.name=闇の属性表象
 
 item.miragium_sword.name=ミラジウムの剣
 item.miragium_pickaxe.name=ミラジウムのつるはし

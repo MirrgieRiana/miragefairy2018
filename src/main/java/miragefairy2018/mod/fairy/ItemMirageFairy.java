@@ -33,9 +33,9 @@ public class ItemMirageFairy extends ItemMulti<SubtypeMirageFairy>
 		Potential potential = subtype.mirageFairy.getPotential();
 
 		tooltip.add("      " + format(light, potential));
-		tooltip.add("  " + format(fire, potential) + "      " + format(wind, potential));
+		tooltip.add("  " + format(fire, potential) + "      " + format(air, potential));
 		tooltip.add("  " + format(earth, potential) + "      " + format(water, potential));
-		tooltip.add("      " + format(shadow, potential));
+		tooltip.add("      " + format(darkness, potential));
 		tooltip.add("" + YELLOW + "Cost: " + String.format("%.1f", subtype.mirageFairy.getCost()));
 
 	}
