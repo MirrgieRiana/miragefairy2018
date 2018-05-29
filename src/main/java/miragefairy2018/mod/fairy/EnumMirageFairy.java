@@ -191,19 +191,19 @@ public enum EnumMirageFairy
 		public Potential(double power, double ratioLight, double ratioWind, double ratioWater, double ratioDarkness, double ratioEarth, double ratioFire)
 		{
 
-			// ステータス倍率
-			double power2 = 10 * Math.pow(10, power / 100.0);
+			// ステータス合計
+			sum = 10 * Math.pow(10, power / 100.0);
 
 			// 比率合計
-			sum = ratioLight + ratioWind + ratioWater + ratioDarkness + ratioEarth + ratioFire;
+			double sumRatio = ratioLight + ratioWind + ratioWater + ratioDarkness + ratioEarth + ratioFire;
 
 			// ステータス: 0 ~ power2
-			light = power2 * ratioLight / sum;
-			air = power2 * ratioWind / sum;
-			water = power2 * ratioWater / sum;
-			darkness = power2 * ratioDarkness / sum;
-			earth = power2 * ratioEarth / sum;
-			fire = power2 * ratioFire / sum;
+			light = sum * ratioLight / sumRatio;
+			air = sum * ratioWind / sumRatio;
+			water = sum * ratioWater / sumRatio;
+			darkness = sum * ratioDarkness / sumRatio;
+			earth = sum * ratioEarth / sumRatio;
+			fire = sum * ratioFire / sumRatio;
 
 		}
 
