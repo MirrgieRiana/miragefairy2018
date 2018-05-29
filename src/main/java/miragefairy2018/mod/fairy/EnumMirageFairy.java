@@ -141,6 +141,23 @@ public enum EnumMirageFairy
 
 	;
 
+	static {
+		air.setStatus(1, 0, 0, 10, 3, 2, 0, 0);
+		water.setStatus(1, 10, 0, 0, 10, 3, 2, 0);
+		stone.setStatus(1, 40, 0, 0, 0, 10, 8, 0);
+		iron.setStatus(2, 70, 0, 0, 1, 4, 10, 1);
+		diamond.setStatus(4, 90, 10, 8, 0, 4, 8, 4);
+		redstone.setStatus(2, 60, 0, 8, 0, 0, 10, 16);
+		enderman.setStatus(3, 85, 4, 14, 10, 0, 5, 11);
+		lilac.setStatus(3, 50, 1, 0, 10, 1, 0, 0);
+		torch.setStatus(2, 30, 0, 1, 0, 4, 10, 1);
+		moon.setStatus(5, 95, 10, 18, 4, 0, 0, 25);
+		noon.setStatus(1, 80, 10, 4, 7, 9, 4, 0);
+		plains.setStatus(2, 20, 0, 0, 10, 14, 2, 0);
+	}
+
+	//
+
 	public final MirageFairyColorSet colorSet;
 	public final String registryName;
 	public final String oreName;
@@ -155,6 +172,102 @@ public enum EnumMirageFairy
 	private static MirageFairyColorSet fc(int skin, int darker, int brighter, int hair)
 	{
 		return new MirageFairyColorSet(skin, darker, brighter, hair);
+	}
+
+	//
+
+	public class Potential
+	{
+
+		public final double sum;
+
+		public final double light;
+		public final double wind;
+		public final double water;
+		public final double shadow;
+		public final double earth;
+		public final double fire;
+
+		public Potential(double power, double ratioLight, double ratioWind, double ratioWater, double ratioShadow, double ratioEarth, double ratioFire)
+		{
+
+			// ステータス倍率
+			double power2 = 10 * Math.pow(10, power / 100.0);
+
+			// 比率合計
+			sum = ratioLight + ratioWind + ratioWater + ratioShadow + ratioEarth + ratioFire;
+
+			// ステータス: 0 ~ power2
+			light = power2 * ratioLight / sum;
+			wind = power2 * ratioWind / sum;
+			water = power2 * ratioWater / sum;
+			shadow = power2 * ratioShadow / sum;
+			earth = power2 * ratioEarth / sum;
+			fire = power2 * ratioFire / sum;
+
+		}
+
+		public double get(EnumManaType manaType)
+		{
+			switch (manaType) {
+				case light:
+					return light;
+				case wind:
+					return wind;
+				case water:
+					return water;
+				case shadow:
+					return shadow;
+				case earth:
+					return earth;
+				case fire:
+					return fire;
+				default:
+					throw new RuntimeException("Illegal Mana Type: " + manaType);
+			}
+		}
+
+	}
+
+	private int rare; // 1 ~ 5
+	private Potential potential;
+	private double cost;
+
+	public int getRare()
+	{
+		return rare;
+	}
+
+	public Potential getPotential()
+	{
+		return potential;
+	}
+
+	public double getCost()
+	{
+		return cost;
+	}
+
+	private void setStatus(int rare, double power, double ratioLight, double ratioWind, double ratioWater, double ratioShadow, double ratioEarth, double ratioFire)
+	{
+		this.rare = rare;
+
+		potential = new Potential(power, ratioLight, ratioWind, ratioWater, ratioShadow, ratioEarth, ratioFire);
+
+		// 集中度: 1/6 ~ 1
+		double density = (potential.light * potential.light +
+			potential.wind * potential.wind +
+			potential.water * potential.water +
+			potential.shadow * potential.shadow +
+			potential.earth * potential.earth +
+			potential.fire * potential.fire) / (potential.sum * potential.sum);
+
+		// 効率: 1 + (1/12 ~ 0.5) + (0 ~ 0.2)
+		double efficiency = 1 + density * 0.5 + (rare - 1) * 0.05;
+
+		// コスト
+		cost = potential.sum / efficiency;
+
 	}
 
 }

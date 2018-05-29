@@ -37,7 +37,7 @@ public class ModuleFairy
 	public static final SubtypeMirageFairy mirageFairyNoon = rMF(10, EnumMirageFairy.noon);
 	public static final SubtypeMirageFairy mirageFairyPlains = rMF(11, EnumMirageFairy.plains);
 
-	public static ItemMulti<SubtypeMirageFairy> itemMirageFairy;
+	public static ItemMirageFairy itemMirageFairy;
 
 	//
 
@@ -53,7 +53,7 @@ public class ModuleFairy
 		erMod.registerItem.register(b -> {
 
 			// 妖精
-			itemMirageFairy = b.new ItemBuilder<>(new ItemMulti<>(subtypesMirageFairy), "mirage_fairy")
+			itemMirageFairy = b.new ItemBuilder<>(new ItemMirageFairy(subtypesMirageFairy), "mirage_fairy")
 				.setRegistryName().setCreativeTab().register().process(b2 -> {
 					subtypesMirageFairy.forEach(s -> {
 						b2.setCustomModelResourceLocation(s.id, b2.resourceName);
