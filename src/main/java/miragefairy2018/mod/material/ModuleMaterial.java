@@ -33,7 +33,7 @@ public class ModuleMaterial
 	public static final SubtypeMatrix<Shape, Material> ingotMiragium = subtypesMaterial.register(ingot, miragium);
 	public static final SubtypeMatrix<Shape, Material> gemMiragonite = subtypesMaterial.register(gem, miragonite);
 
-	public static ItemMulti itemMaterials;
+	public static ItemMulti<SubtypeMatrix<Shape, Material>> itemMaterials;
 
 	//
 
@@ -45,7 +45,7 @@ public class ModuleMaterial
 	public static final Subtype elementalEmblemEarth = subItemsMiddleMaterials.register(new Subtype(4, "elementalEmblemEarth", "earth_elemental_emblem"));
 	public static final Subtype elementalEmblemFire = subItemsMiddleMaterials.register(new Subtype(5, "elementalEmblemFire", "fire_elemental_emblem"));
 
-	public static ItemMulti itemMiddleMaterials;
+	public static ItemMulti<Subtype> itemMiddleMaterials;
 
 	//
 
@@ -54,7 +54,7 @@ public class ModuleMaterial
 		erMod.registerItem.register(b -> {
 
 			// 素材アイテム
-			itemMaterials = b.new ItemBuilder<>(new ItemMulti(subtypesMaterial), "materials")
+			itemMaterials = b.new ItemBuilder<>(new ItemMulti<>(subtypesMaterial), "materials")
 				.setRegistryName().setCreativeTab().register().process(b2 -> {
 					subtypesMaterial.forEach(s -> {
 						b2.setCustomModelResourceLocation(s.id, s.resourceName);
@@ -63,7 +63,7 @@ public class ModuleMaterial
 				}).get();
 
 			// 中間素材アイテム
-			itemMiddleMaterials = b.new ItemBuilder<>(new ItemMulti(subItemsMiddleMaterials), "middle_materials")
+			itemMiddleMaterials = b.new ItemBuilder<>(new ItemMulti<>(subItemsMiddleMaterials), "middle_materials")
 				.setRegistryName().setCreativeTab().register().process(b2 -> {
 					subItemsMiddleMaterials.forEach(s -> {
 						b2.setCustomModelResourceLocation(s.id, s.resourceName);

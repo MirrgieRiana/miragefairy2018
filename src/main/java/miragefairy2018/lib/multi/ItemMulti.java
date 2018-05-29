@@ -1,17 +1,19 @@
 package miragefairy2018.lib.multi;
 
+import java.util.Optional;
+
 import miragefairy2018.lib.registry.Category;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemMulti extends Item
+public class ItemMulti<I extends Subtype> extends Item
 {
 
-	public Category<? extends Subtype> subtypes;
+	public Category<I> subtypes;
 
-	public ItemMulti(Category<? extends Subtype> subtypes)
+	public ItemMulti(Category<I> subtypes)
 	{
 		this.subtypes = subtypes;
 

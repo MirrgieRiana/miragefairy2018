@@ -37,14 +37,14 @@ public class ModuleFairy
 	public static final SubtypeMirageFairy mirageFairyNoon = rMF(10, EnumMirageFairy.noon);
 	public static final SubtypeMirageFairy mirageFairyPlains = rMF(11, EnumMirageFairy.plains);
 
-	public static ItemMulti itemMirageFairy;
+	public static ItemMulti<SubtypeMirageFairy> itemMirageFairy;
 
 	//
 
 	public static final Category<Subtype> subtypesMirageWisp = new Category<>();
 	public static final Subtype mirageWisp = subtypesMirageWisp.register(new Subtype(0, "mirageWisp", "mirage_wisp"));
 
-	public static ItemMulti itemMirageWisp;
+	public static ItemMulti<Subtype> itemMirageWisp;
 
 	//
 
@@ -53,7 +53,7 @@ public class ModuleFairy
 		erMod.registerItem.register(b -> {
 
 			// 妖精
-			itemMirageFairy = b.new ItemBuilder<>(new ItemMulti(subtypesMirageFairy), "mirage_fairy")
+			itemMirageFairy = b.new ItemBuilder<>(new ItemMulti<>(subtypesMirageFairy), "mirage_fairy")
 				.setRegistryName().setCreativeTab().register().process(b2 -> {
 					subtypesMirageFairy.forEach(s -> {
 						b2.setCustomModelResourceLocation(s.id, b2.resourceName);
@@ -63,7 +63,7 @@ public class ModuleFairy
 				}).get();
 
 			// ウィスプ
-			itemMirageWisp = b.new ItemBuilder<>(new ItemMulti(subtypesMirageWisp), "mirage_wisp")
+			itemMirageWisp = b.new ItemBuilder<>(new ItemMulti<>(subtypesMirageWisp), "mirage_wisp")
 				.setRegistryName().setCreativeTab().register().process(b2 -> {
 					subtypesMirageWisp.forEach(s -> {
 						b2.setCustomModelResourceLocation(s.id, b2.resourceName);
