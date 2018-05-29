@@ -11,12 +11,12 @@ item.miragonite_gem.name=Miragonite
 tile.miragium_ore.name=Miragium Ore
 tile.miragonite_ore.name=Miragonite Ore
 
-item.light_elemental_emblem.name=Light Elemental Emblem
-item.fire_elemental_emblem.name=Fire Elemental Emblem
-item.air_elemental_emblem.name=Air Elemental Emblem
-item.earth_elemental_emblem.name=Earth Elemental Emblem
-item.water_elemental_emblem.name=Water Elemental Emblem
-item.darkness_elemental_emblem.name=Darkness Elemental Emblem
+item.light_elemental_emblem.name=Light Medal
+item.fire_elemental_emblem.name=Fire Medal
+item.air_elemental_emblem.name=Air Medal
+item.earth_elemental_emblem.name=Earth Medal
+item.water_elemental_emblem.name=Water Medal
+item.darkness_elemental_emblem.name=Darkness Medal
 
 item.miragium_sword.name=Miragium Sword
 item.miragium_pickaxe.name=Miragium Pickaxe
