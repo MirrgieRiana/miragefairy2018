@@ -5,12 +5,12 @@ import miragefairy2018.lib.multi.Subtype;
 public class SubtypeMirageFairy extends Subtype
 {
 
-	public final MirageFairyColorSet colorSet;
+	public final EnumMirageFairy mirageFairy;
 
-	public SubtypeMirageFairy(int id, String name, String resourceName, MirageFairyColorSet colorSet)
+	public SubtypeMirageFairy(int id, String name, String resourceName, EnumMirageFairy mirageFairy)
 	{
 		super(id, name, resourceName);
-		this.colorSet = colorSet;
+		this.mirageFairy = mirageFairy;
 	}
 
 }

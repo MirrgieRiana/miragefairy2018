@@ -20,7 +20,7 @@ public class ModuleFairy
 			id,
 			"mirageFairy" + mirageFairy.oreName,
 			mirageFairy.registryName + "_mirage_fairy",
-			mirageFairy.colorSet));
+			mirageFairy));
 	}
 
 	public static final Category<SubtypeMirageFairy> subtypesMirageFairy = new Category<>();
@@ -80,11 +80,11 @@ public class ModuleFairy
 				{
 					return subtypesMirageFairy.get(stack.getMetadata())
 						.flatMap(s -> {
-							if (tintIndex == 0) return Optional.of(s.colorSet.skin);
+							if (tintIndex == 0) return Optional.of(s.mirageFairy.colorSet.skin);
 							if (tintIndex == 1) return Optional.of(0x8888ff);
-							if (tintIndex == 2) return Optional.of(s.colorSet.darker);
-							if (tintIndex == 3) return Optional.of(s.colorSet.brighter);
-							if (tintIndex == 4) return Optional.of(s.colorSet.hair);
+							if (tintIndex == 2) return Optional.of(s.mirageFairy.colorSet.darker);
+							if (tintIndex == 3) return Optional.of(s.mirageFairy.colorSet.brighter);
+							if (tintIndex == 4) return Optional.of(s.mirageFairy.colorSet.hair);
 							return Optional.empty();
 						})
 						.orElse(0xffffff);
