@@ -3,7 +3,7 @@ package miragefairy2018.lib.matrix;
 import miragefairy2018.lib.multi.Subtype;
 import miragefairy2018.lib.registry.CategoryItem;
 
-public class SubtypeMatrix<I1 extends CategoryItem, I2 extends CategoryItem> extends Subtype
+public class SubtypeMatrix<I1 extends CategoryItem<I1>, I2 extends CategoryItem<I2>> extends Subtype<SubtypeMatrix<I1, I2>>
 {
 
 	public final I1 item1;

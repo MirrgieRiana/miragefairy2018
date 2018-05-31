@@ -2,7 +2,7 @@ package miragefairy2018.mod.fairy;
 
 import miragefairy2018.lib.multi.Subtype;
 
-public class SubtypeMirageFairy extends Subtype
+public class SubtypeMirageFairy extends Subtype<SubtypeMirageFairy>
 {
 
 	public final EnumMirageFairy mirageFairy;

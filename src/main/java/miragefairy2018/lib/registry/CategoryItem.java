@@ -1,6 +1,6 @@
 package miragefairy2018.lib.registry;
 
-public class CategoryItem
+public class CategoryItem<I extends CategoryItem<I>> implements Comparable<I>
 {
 
 	public final int id;
@@ -12,6 +12,12 @@ public class CategoryItem
 		this.id = id;
 		this.name = name;
 		this.resourceName = resourceName;
+	}
+
+	@Override
+	public int compareTo(I other)
+	{
+		return name.compareTo(other.name);
 	}
 
 }

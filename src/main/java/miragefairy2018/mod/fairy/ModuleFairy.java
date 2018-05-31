@@ -3,7 +3,7 @@ package miragefairy2018.mod.fairy;
 import java.util.Optional;
 
 import miragefairy2018.lib.multi.ItemMulti;
-import miragefairy2018.lib.multi.Subtype;
+import miragefairy2018.lib.multi.SubtypeNormal;
 import miragefairy2018.lib.registry.Category;
 import miragefairy2018.mod.EventRegistryMod;
 import net.minecraft.client.Minecraft;
@@ -41,10 +41,10 @@ public class ModuleFairy
 
 	//
 
-	public static final Category<Subtype> subtypesMirageWisp = new Category<>();
-	public static final Subtype mirageWisp = subtypesMirageWisp.register(new Subtype(0, "mirageWisp", "mirage_wisp"));
+	public static final Category<SubtypeNormal> subtypesMirageWisp = new Category<>();
+	public static final SubtypeNormal mirageWisp = subtypesMirageWisp.register(new SubtypeNormal(0, "mirageWisp", "mirage_wisp"));
 
-	public static ItemMulti<Subtype> itemMirageWisp;
+	public static ItemMulti<SubtypeNormal> itemMirageWisp;
 
 	//
 

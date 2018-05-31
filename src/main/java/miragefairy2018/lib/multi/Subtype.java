@@ -4,7 +4,7 @@ import miragefairy2018.lib.registry.CategoryItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class Subtype extends CategoryItem
+public class Subtype<I extends Subtype<I>> extends CategoryItem<I>
 {
 
 	public Subtype(int id, String name, String resourceName)

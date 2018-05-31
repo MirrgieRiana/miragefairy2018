@@ -3,7 +3,7 @@ package miragefairy2018.lib.matrix;
 import miragefairy2018.lib.registry.Category;
 import miragefairy2018.lib.registry.CategoryItem;
 
-public class CategoryMatrix<I1 extends CategoryItem, I2 extends CategoryItem> extends Category<SubtypeMatrix<I1, I2>>
+public class CategoryMatrix<I1 extends CategoryItem<I1>, I2 extends CategoryItem<I2>> extends Category<SubtypeMatrix<I1, I2>>
 {
 
 	private int offset;

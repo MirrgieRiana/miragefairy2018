@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import mirrg.beryllium.lang.LambdaUtil;
 import mirrg.beryllium.struct.ImmutableArray;
 
-public class Category<I extends CategoryItem> implements Iterable<I>
+public class Category<I extends CategoryItem<I>> implements Iterable<I>
 {
 
 	private boolean initialized = false;

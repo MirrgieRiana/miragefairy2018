@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 
-public class ItemMulti<I extends Subtype> extends Item
+public class ItemMulti<I extends Subtype<I>> extends Item
 {
 
 	public Category<I> subtypes;

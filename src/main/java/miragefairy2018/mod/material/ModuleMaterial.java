@@ -3,7 +3,7 @@ package miragefairy2018.mod.material;
 import miragefairy2018.lib.matrix.CategoryMatrix;
 import miragefairy2018.lib.matrix.SubtypeMatrix;
 import miragefairy2018.lib.multi.ItemMulti;
-import miragefairy2018.lib.multi.Subtype;
+import miragefairy2018.lib.multi.SubtypeNormal;
 import miragefairy2018.lib.registry.Category;
 import miragefairy2018.mod.EventRegistryMod;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -37,16 +37,16 @@ public class ModuleMaterial
 
 	//
 
-	public static final Category<Subtype> subItemsMiddleMaterials = new Category<>();
-	public static final Subtype elementalEmblemLight = subItemsMiddleMaterials.register(new Subtype(0, "elementalEmblemLight", "light_elemental_emblem"));
-	public static final Subtype elementalEmblemAir = subItemsMiddleMaterials.register(new Subtype(1, "elementalEmblemAir", "air_elemental_emblem"));
-	public static final Subtype elementalEmblemWater = subItemsMiddleMaterials.register(new Subtype(2, "elementalEmblemWater", "water_elemental_emblem"));
-	public static final Subtype elementalEmblemDarkness = subItemsMiddleMaterials.register(new Subtype(3, "elementalEmblemDarkness", "darkness_elemental_emblem"));
-	public static final Subtype elementalEmblemEarth = subItemsMiddleMaterials.register(new Subtype(4, "elementalEmblemEarth", "earth_elemental_emblem"));
-	public static final Subtype elementalEmblemFire = subItemsMiddleMaterials.register(new Subtype(5, "elementalEmblemFire", "fire_elemental_emblem"));
-	public static final Subtype magicSphereEmpty = subItemsMiddleMaterials.register(new Subtype(6, "magicSphereEmpty", "empty_magic_sphere"));
+	public static final Category<SubtypeNormal> subItemsMiddleMaterials = new Category<>();
+	public static final SubtypeNormal elementalEmblemLight = subItemsMiddleMaterials.register(new SubtypeNormal(0, "elementalEmblemLight", "light_elemental_emblem"));
+	public static final SubtypeNormal elementalEmblemAir = subItemsMiddleMaterials.register(new SubtypeNormal(1, "elementalEmblemAir", "air_elemental_emblem"));
+	public static final SubtypeNormal elementalEmblemWater = subItemsMiddleMaterials.register(new SubtypeNormal(2, "elementalEmblemWater", "water_elemental_emblem"));
+	public static final SubtypeNormal elementalEmblemDarkness = subItemsMiddleMaterials.register(new SubtypeNormal(3, "elementalEmblemDarkness", "darkness_elemental_emblem"));
+	public static final SubtypeNormal elementalEmblemEarth = subItemsMiddleMaterials.register(new SubtypeNormal(4, "elementalEmblemEarth", "earth_elemental_emblem"));
+	public static final SubtypeNormal elementalEmblemFire = subItemsMiddleMaterials.register(new SubtypeNormal(5, "elementalEmblemFire", "fire_elemental_emblem"));
+	public static final SubtypeNormal magicSphereEmpty = subItemsMiddleMaterials.register(new SubtypeNormal(6, "magicSphereEmpty", "empty_magic_sphere"));
 
-	public static ItemMulti<Subtype> itemMiddleMaterials;
+	public static ItemMulti<SubtypeNormal> itemMiddleMaterials;
 
 	//
 
