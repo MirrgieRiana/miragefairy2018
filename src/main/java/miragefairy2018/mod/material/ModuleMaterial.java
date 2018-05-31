@@ -1,8 +1,8 @@
 package miragefairy2018.mod.material;
 
 import miragefairy2018.lib.category.Category;
-import miragefairy2018.lib.matrix.CategoryMatrix;
-import miragefairy2018.lib.matrix.SubtypeMatrix;
+import miragefairy2018.lib.category.matrix.CategoryMatrix;
+import miragefairy2018.lib.category.matrix.SubtypeMatrix;
 import miragefairy2018.lib.multi.ItemMulti;
 import miragefairy2018.lib.multi.SubtypeNormal;
 import miragefairy2018.mod.EventRegistryMod;

@@ -1,4 +1,4 @@
-package miragefairy2018.lib.matrix;
+package miragefairy2018.lib.category.matrix;
 
 import miragefairy2018.lib.category.CategoryItem;
 import miragefairy2018.lib.multi.Subtype;
