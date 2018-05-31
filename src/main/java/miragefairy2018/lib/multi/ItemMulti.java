@@ -2,7 +2,7 @@ package miragefairy2018.lib.multi;
 
 import java.util.Optional;
 
-import miragefairy2018.lib.registry.Category;
+import miragefairy2018.lib.category.Category;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

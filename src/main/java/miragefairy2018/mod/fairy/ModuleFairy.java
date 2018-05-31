@@ -2,9 +2,9 @@ package miragefairy2018.mod.fairy;
 
 import java.util.Optional;
 
+import miragefairy2018.lib.category.Category;
 import miragefairy2018.lib.multi.ItemMulti;
 import miragefairy2018.lib.multi.SubtypeNormal;
-import miragefairy2018.lib.registry.Category;
 import miragefairy2018.mod.EventRegistryMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IItemColor;

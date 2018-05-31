@@ -1,6 +1,6 @@
 package miragefairy2018.lib.multi;
 
-import miragefairy2018.lib.registry.CategoryItem;
+import miragefairy2018.lib.category.CategoryItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 

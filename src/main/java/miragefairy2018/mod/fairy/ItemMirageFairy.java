@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import miragefairy2018.lib.category.Category;
 import miragefairy2018.lib.multi.ItemMulti;
-import miragefairy2018.lib.registry.Category;
 import miragefairy2018.mod.fairy.EnumMirageFairy.Potential;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;

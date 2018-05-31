@@ -1,4 +1,4 @@
-package miragefairy2018.lib.registry;
+package miragefairy2018.lib.category;
 
 import java.util.ArrayList;
 import java.util.Iterator;

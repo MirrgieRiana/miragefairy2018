@@ -1,6 +1,6 @@
 package miragefairy2018.mod.material;
 
-import miragefairy2018.lib.registry.CategoryItem;
+import miragefairy2018.lib.category.CategoryItem;
 
 public class Shape extends CategoryItem<Shape>
 {

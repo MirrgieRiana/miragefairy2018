@@ -1,4 +1,4 @@
-package miragefairy2018.lib.registry;
+package miragefairy2018.lib.category;
 
 import miragefairy2018.lib.util.Util;
 

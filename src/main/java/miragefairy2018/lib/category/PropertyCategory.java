@@ -1,12 +1,10 @@
-package miragefairy2018.lib;
+package miragefairy2018.lib.category;
 
 import java.util.Collection;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableSet;
 
-import miragefairy2018.lib.registry.Category;
-import miragefairy2018.lib.registry.CategoryItem;
 import net.minecraft.block.properties.PropertyHelper;
 
 public class PropertyCategory<I extends CategoryItem<I>> extends PropertyHelper<I>
