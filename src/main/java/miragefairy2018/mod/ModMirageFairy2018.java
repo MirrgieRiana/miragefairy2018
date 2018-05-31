@@ -60,6 +60,8 @@ public class ModMirageFairy2018
 
 		if (event.getSide().isClient()) erMod.registerItemColorHandler.run();
 
+		erMod.registerTileEntity.run();
+
 	}
 
 	@EventHandler

@@ -28,6 +28,8 @@ public class EventRegistryMod
 
 	public final EventProviderRunnable registerItemColorHandler = new EventProviderRunnable();
 
+	public final EventProviderRunnable registerTileEntity = new EventProviderRunnable();
+
 	//
 
 	public final EventProviderConsumer<FMLPostInitializationEvent> postInit = new EventProviderConsumer<>();
