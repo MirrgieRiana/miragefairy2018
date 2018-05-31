@@ -6,8 +6,23 @@ public class CategoryItem<I extends CategoryItem<I>> implements Comparable<I>
 {
 
 	public final int id;
+
+	/**
+	 * 鉱石辞書名と同じ。<br>
+	 * 例：platePigIron
+	 */
 	public final String name;
+
+	/**
+	 * {@link #name} の先頭を大文字にしたもの。<br>
+	 * 例：PlatePigIron
+	 */
 	public final String oreNameSuffix;
+
+	/**
+	 * リソース名。<br>
+	 * 例：pig_iron_plate
+	 */
 	public final String resourceName;
 
 	public CategoryItem(int id, String name, String resourceName)
