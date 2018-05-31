@@ -33,6 +33,14 @@ public class BlockOre extends Block
 
 	}
 
+	@Override
+	public void getSubBlocks(CreativeTabs creativeTab, NonNullList<ItemStack> items)
+	{
+		for (EnumType type : EnumType.values) {
+			items.add(createItemStack(type));
+		}
+	}
+
 	// state
 
 	public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.create("variant", EnumType.class);
@@ -130,16 +138,6 @@ public class BlockOre extends Block
 	public BlockRenderLayer getBlockLayer()
 	{
 		return BlockRenderLayer.CUTOUT_MIPPED;
-	}
-
-	//
-
-	@Override
-	public void getSubBlocks(CreativeTabs creativeTab, NonNullList<ItemStack> items)
-	{
-		for (EnumType type : EnumType.values) {
-			items.add(createItemStack(type));
-		}
 	}
 
 }
