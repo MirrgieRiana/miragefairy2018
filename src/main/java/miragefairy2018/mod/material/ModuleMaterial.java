@@ -44,6 +44,7 @@ public class ModuleMaterial
 	public static final Subtype elementalEmblemDarkness = subItemsMiddleMaterials.register(new Subtype(3, "elementalEmblemDarkness", "darkness_elemental_emblem"));
 	public static final Subtype elementalEmblemEarth = subItemsMiddleMaterials.register(new Subtype(4, "elementalEmblemEarth", "earth_elemental_emblem"));
 	public static final Subtype elementalEmblemFire = subItemsMiddleMaterials.register(new Subtype(5, "elementalEmblemFire", "fire_elemental_emblem"));
+	public static final Subtype magicSphereEmpty = subItemsMiddleMaterials.register(new Subtype(6, "magicSphereEmpty", "empty_magic_sphere"));
 
 	public static ItemMulti<Subtype> itemMiddleMaterials;
 

@@ -1,0 +1,23 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		"GDG",
+		"D D",
+		"GDG"
+	],
+	"key": {
+		"G": {
+			"type": "forge:ore_dict",
+			"ore": "gemMiragonite"
+		},
+		"D": {
+			"type": "forge:ore_dict",
+			"ore": "dustTinyMiragium"
+		}
+	},
+	"result": {
+		"item": "miragefairy2018:middle_materials",
+		"data": 6,
+		"count": 1
+	}
+}

@@ -17,6 +17,7 @@ item.air_elemental_emblem.name=風のメダル
 item.earth_elemental_emblem.name=土のメダル
 item.water_elemental_emblem.name=水のメダル
 item.darkness_elemental_emblem.name=闇のメダル
+item.empty_magic_sphere.name=魔法の珠【空】
 
 item.miragium_sword.name=ミラジウムの剣
 item.miragium_pickaxe.name=ミラジウムのつるはし
