@@ -9,8 +9,8 @@ public class ItemOre extends ItemBlock
 	public ItemOre(BlockOre block)
 	{
 		super(block);
-		this.setMaxDamage(0);
-		this.setHasSubtypes(true);
+		setMaxDamage(0);
+		setHasSubtypes(true);
 	}
 
 	@Override
