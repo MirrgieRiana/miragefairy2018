@@ -1,6 +1,7 @@
 package miragefairy2018.mod;
 
 import miragefairy2018.lib.util.Builder;
+import miragefairy2018.mod.city.ModuleCity;
 import miragefairy2018.mod.dreamyflower.ModuleDreamyFlower;
 import miragefairy2018.mod.fairy.ModuleFairy;
 import miragefairy2018.mod.material.ModuleMaterial;
@@ -30,6 +31,7 @@ public class ModMirageFairy2018
 		ModuleTool.init(erMod);
 		ModuleDreamyFlower.init(erMod);
 		ModuleFairy.init(erMod);
+		ModuleCity.init(erMod);
 	}
 
 	@EventHandler
