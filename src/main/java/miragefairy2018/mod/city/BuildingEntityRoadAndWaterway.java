@@ -2,10 +2,10 @@ package miragefairy2018.mod.city;
 
 import net.minecraft.util.EnumFacing;
 
-public class BuildingEntityRoad extends BuildingEntity implements IBuildingAccess
+public class BuildingEntityRoadAndWaterway extends BuildingEntity implements IBuildingAccess
 {
 
-	public BuildingEntityRoad(TileEntityBuilding tileEntity, Building building)
+	public BuildingEntityRoadAndWaterway(TileEntityBuilding tileEntity, Building building)
 	{
 		super(tileEntity, building);
 	}
@@ -19,7 +19,7 @@ public class BuildingEntityRoad extends BuildingEntity implements IBuildingAcces
 	@Override
 	public boolean canConnectWaterway(EnumFacing facing)
 	{
-		return false;
+		return facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH || facing == EnumFacing.WEST || facing == EnumFacing.EAST;
 	}
 
 }

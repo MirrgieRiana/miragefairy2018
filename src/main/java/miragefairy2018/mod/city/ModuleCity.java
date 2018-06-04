@@ -32,6 +32,8 @@ public class ModuleCity
 	public static final Category<Building> buildings = new Category<>();
 	public static final Building buildingNothing = buildings.register(new Building(0, "nothing", "nothing", BuildingEntityNothing::new));
 	public static final Building buildingRoad = buildings.register(new Building(4, "road", "road", BuildingEntityRoad::new));
+	public static final Building buildingWaterway = buildings.register(new Building(5, "waterway", "waterway", BuildingEntityWaterway::new));
+	public static final Building buildingRoadAndWaterway = buildings.register(new Building(6, "roadAndWaterway", "road_and_waterway", BuildingEntityRoadAndWaterway::new));
 
 	public static BlockBuilding blockBuilding;
 	public static ItemBuilding itemBuilding;

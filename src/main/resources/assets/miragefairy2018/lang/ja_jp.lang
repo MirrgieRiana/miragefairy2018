@@ -42,3 +42,5 @@ item.mirage_wisp.name=ミラージュウィスプ
 
 tile.building.nothing.name=無
 tile.building.road.name=道路
+tile.building.waterway.name=水路
+tile.building.road_and_waterway.name=道路と水路

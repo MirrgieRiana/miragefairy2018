@@ -42,3 +42,5 @@ item.mirage_wisp.name=Mirage Wisp
 
 tile.building.nothing.name=Nothing
 tile.building.road.name=Road
+tile.building.waterway.name=Waterway
+tile.building.road_and_waterway.name=Road and Waterway

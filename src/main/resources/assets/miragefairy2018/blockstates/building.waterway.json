@@ -1,0 +1,25 @@
+{
+	"multipart": [
+
+		{
+			"apply": { "model": "miragefairy2018:building.waterway.center" }
+		},
+		{
+			"when": { "waterway_north": "true" },
+			"apply": { "model": "miragefairy2018:building.waterway.side", "y": 0 }
+		},
+		{
+			"when": { "waterway_east": "true" },
+			"apply": { "model": "miragefairy2018:building.waterway.side", "y": 90 }
+		},
+		{
+			"when": { "waterway_south": "true" },
+			"apply": { "model": "miragefairy2018:building.waterway.side", "y": 180 }
+		},
+		{
+			"when": { "waterway_west": "true" },
+			"apply": { "model": "miragefairy2018:building.waterway.side", "y": 270 }
+		}
+
+	]
+}
