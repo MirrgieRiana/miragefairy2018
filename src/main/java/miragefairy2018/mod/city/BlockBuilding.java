@@ -50,18 +50,18 @@ public final class BlockBuilding extends BlockContainer
 
 	public static final PropertyCategory<Building> VARIANT = new PropertyCategory<>("variant", Building.class, ModuleCity.buildings);
 
-	public static final UnlistedPropertyBoolean WATERWAY_DOWN = new UnlistedPropertyBoolean("waterway_down");
-	public static final UnlistedPropertyBoolean WATERWAY_UP = new UnlistedPropertyBoolean("waterway_up");
-	public static final UnlistedPropertyBoolean WATERWAY_NORTH = new UnlistedPropertyBoolean("waterway_north");
-	public static final UnlistedPropertyBoolean WATERWAY_SOUTH = new UnlistedPropertyBoolean("waterway_south");
-	public static final UnlistedPropertyBoolean WATERWAY_WEST = new UnlistedPropertyBoolean("waterway_west");
-	public static final UnlistedPropertyBoolean WATERWAY_EAST = new UnlistedPropertyBoolean("waterway_east");
 	public static final UnlistedPropertyBoolean ROAD_DOWN = new UnlistedPropertyBoolean("road_down");
 	public static final UnlistedPropertyBoolean ROAD_UP = new UnlistedPropertyBoolean("road_up");
 	public static final UnlistedPropertyBoolean ROAD_NORTH = new UnlistedPropertyBoolean("road_north");
 	public static final UnlistedPropertyBoolean ROAD_SOUTH = new UnlistedPropertyBoolean("road_south");
 	public static final UnlistedPropertyBoolean ROAD_WEST = new UnlistedPropertyBoolean("road_west");
 	public static final UnlistedPropertyBoolean ROAD_EAST = new UnlistedPropertyBoolean("road_east");
+	public static final UnlistedPropertyBoolean WATERWAY_DOWN = new UnlistedPropertyBoolean("waterway_down");
+	public static final UnlistedPropertyBoolean WATERWAY_UP = new UnlistedPropertyBoolean("waterway_up");
+	public static final UnlistedPropertyBoolean WATERWAY_NORTH = new UnlistedPropertyBoolean("waterway_north");
+	public static final UnlistedPropertyBoolean WATERWAY_SOUTH = new UnlistedPropertyBoolean("waterway_south");
+	public static final UnlistedPropertyBoolean WATERWAY_WEST = new UnlistedPropertyBoolean("waterway_west");
+	public static final UnlistedPropertyBoolean WATERWAY_EAST = new UnlistedPropertyBoolean("waterway_east");
 
 	@Override
 	public int getMetaFromState(IBlockState state)
@@ -83,18 +83,18 @@ public final class BlockBuilding extends BlockContainer
 				VARIANT,
 			},
 			new IUnlistedProperty<?>[] {
+				ROAD_DOWN,
+				ROAD_UP,
+				ROAD_NORTH,
+				ROAD_SOUTH,
+				ROAD_WEST,
+				ROAD_EAST,
 				WATERWAY_DOWN,
 				WATERWAY_UP,
 				WATERWAY_NORTH,
 				WATERWAY_SOUTH,
 				WATERWAY_WEST,
 				WATERWAY_EAST,
-				ROAD_DOWN,
-				ROAD_UP,
-				ROAD_NORTH,
-				ROAD_SOUTH,
-				ROAD_WEST,
-				ROAD_EAST
 			});
 	}
 
@@ -124,12 +124,12 @@ public final class BlockBuilding extends BlockContainer
 		BuildingEntity center = getBuildingEntity(world, pos).orElse(null);
 		if (center != null) {
 			IExtendedBlockState state2 = (IExtendedBlockState) state;
-			state2 = connect(state2, world, pos, center, EnumFacing.DOWN, WATERWAY_DOWN, ROAD_DOWN);
-			state2 = connect(state2, world, pos, center, EnumFacing.UP, WATERWAY_UP, ROAD_UP);
-			state2 = connect(state2, world, pos, center, EnumFacing.NORTH, WATERWAY_NORTH, ROAD_NORTH);
-			state2 = connect(state2, world, pos, center, EnumFacing.SOUTH, WATERWAY_SOUTH, ROAD_SOUTH);
-			state2 = connect(state2, world, pos, center, EnumFacing.EAST, WATERWAY_EAST, ROAD_EAST);
-			state2 = connect(state2, world, pos, center, EnumFacing.WEST, WATERWAY_WEST, ROAD_WEST);
+			state2 = connect(state2, world, pos, center, EnumFacing.DOWN, ROAD_DOWN, WATERWAY_DOWN);
+			state2 = connect(state2, world, pos, center, EnumFacing.UP, ROAD_UP, WATERWAY_UP);
+			state2 = connect(state2, world, pos, center, EnumFacing.NORTH, ROAD_NORTH, WATERWAY_NORTH);
+			state2 = connect(state2, world, pos, center, EnumFacing.SOUTH, ROAD_SOUTH, WATERWAY_SOUTH);
+			state2 = connect(state2, world, pos, center, EnumFacing.EAST, ROAD_EAST, WATERWAY_EAST);
+			state2 = connect(state2, world, pos, center, EnumFacing.WEST, ROAD_WEST, WATERWAY_WEST);
 			state = state2;
 		}
 		return super.getExtendedState(state, world, pos);
