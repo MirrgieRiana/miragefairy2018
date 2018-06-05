@@ -33,7 +33,7 @@ public class PropertyCategory<I extends CategoryItem<I>> extends PropertyHelper<
 	@Override
 	public String getName(I value)
 	{
-		return value.name;
+		return value.resourceName;
 	}
 
 	@Override
