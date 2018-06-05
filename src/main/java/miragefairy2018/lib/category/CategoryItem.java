@@ -36,7 +36,13 @@ public class CategoryItem<I extends CategoryItem<I>> implements Comparable<I>
 	@Override
 	public int compareTo(I other)
 	{
-		return name.compareTo(other.name);
+		return resourceName.compareTo(other.resourceName);
+	}
+
+	@Override
+	public String toString()
+	{
+		return name;
 	}
 
 }
