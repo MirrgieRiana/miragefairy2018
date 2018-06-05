@@ -121,7 +121,7 @@ public final class BlockBuilding extends BlockContainer
 	@Override
 	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos)
 	{
-		BuildingEntity center = getBuildingEntity(world, pos).orElse(null);
+		IBuildingAccess center = getBuildingAccess(world, pos).orElse(null);
 		if (center != null) {
 			IExtendedBlockState state2 = (IExtendedBlockState) state;
 			state2 = connect(state2, world, pos, center, EnumFacing.DOWN, ROAD_DOWN, WATERWAY_DOWN);
@@ -135,28 +135,37 @@ public final class BlockBuilding extends BlockContainer
 		return super.getExtendedState(state, world, pos);
 	}
 
+	protected IExtendedBlockState connect(IExtendedBlockState state, IBlockAccess world, BlockPos pos, IBuildingAccess center, EnumFacing facing, UnlistedPropertyBoolean roadSouth,
+		UnlistedPropertyBoolean waterwaySouth)
+	{
+		Optional<IBuildingAccess> oBuildingAccess2 = getBuildingAccess(world, pos.offset(facing));
+		if (oBuildingAccess2.isPresent()) {
+			if (center.getFairyRoad(facing).isPresent() && oBuildingAccess2.get().getFairyRoad(facing.getOpposite()).isPresent()) {
+				state = state.withProperty(roadSouth, true);
+			}
+			if (center.getFairyWaterway(facing).isPresent() && oBuildingAccess2.get().getFairyWaterway(facing.getOpposite()).isPresent()) {
+				state = state.withProperty(waterwaySouth, true);
+			}
+		}
+		return state;
+	}
+
 	protected Optional<BuildingEntity> getBuildingEntity(IBlockAccess world, BlockPos pos)
 	{
 		TileEntity tileEntity = world.getTileEntity(pos);
-		if (tileEntity instanceof ITileEntityBuildingEntityProvider) {
-			return ((ITileEntityBuildingEntityProvider) tileEntity).getBuildingAccess();
+		if (tileEntity instanceof TileEntityBuilding) {
+			return ((TileEntityBuilding) tileEntity).oBuildingEntity;
 		}
 		return Optional.empty();
 	}
 
-	protected IExtendedBlockState connect(IExtendedBlockState state, IBlockAccess world, BlockPos pos, BuildingEntity center, EnumFacing facing, UnlistedPropertyBoolean waterwaySouth,
-		UnlistedPropertyBoolean roadSouth)
+	protected Optional<IBuildingAccess> getBuildingAccess(IBlockAccess world, BlockPos pos)
 	{
-		Optional<BuildingEntity> oDown = getBuildingEntity(world, pos.offset(facing));
-		if (oDown.isPresent()) {
-			if (center.canConnectWaterway(facing) && oDown.get().canConnectWaterway(facing.getOpposite())) {
-				state = state.withProperty(waterwaySouth, true);
-			}
-			if (center.canConnectRoad(facing) && oDown.get().canConnectRoad(facing.getOpposite())) {
-				state = state.withProperty(roadSouth, true);
-			}
+		TileEntity tileEntity = world.getTileEntity(pos);
+		if (tileEntity instanceof ITileEntityBuilding) {
+			return ((ITileEntityBuilding) tileEntity).getBuildingAccess();
 		}
-		return state;
+		return Optional.empty();
 	}
 
 	// behaviour

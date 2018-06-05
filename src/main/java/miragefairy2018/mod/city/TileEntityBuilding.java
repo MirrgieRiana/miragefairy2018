@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.common.util.Constants.NBT;
 
-public class TileEntityBuilding extends TileEntity implements ITickable, ITileEntityBuildingEntityProvider
+public class TileEntityBuilding extends TileEntity implements ITickable, ITileEntityBuilding
 {
 
 	public Optional<BuildingEntity> oBuildingEntity = Optional.empty();
@@ -70,9 +70,9 @@ public class TileEntityBuilding extends TileEntity implements ITickable, ITileEn
 	}
 
 	@Override
-	public Optional<BuildingEntity> getBuildingAccess()
+	public Optional<IBuildingAccess> getBuildingAccess()
 	{
-		return oBuildingEntity;
+		return oBuildingEntity.map(be -> be);
 	}
 
 }

@@ -1,22 +1,20 @@
 package miragefairy2018.mod.city;
 
+import java.util.Optional;
+
 import net.minecraft.util.EnumFacing;
 
 public interface IBuildingAccess
 {
 
-	public default boolean canConnectWaterway(EnumFacing facing)
+	public default Optional<FairyRoad> getFairyRoad(EnumFacing facing)
 	{
-		return false;
+		return Optional.empty();
 	}
 
-	public default boolean canConnectRoad(EnumFacing facing)
+	public default Optional<FairyWaterway> getFairyWaterway(EnumFacing facing)
 	{
-		return false;
+		return Optional.empty();
 	}
-
-	public double getMana();
-
-	public void setMana(double mana);
 
 }

@@ -1,25 +1,45 @@
 package miragefairy2018.mod.city;
 
+import java.util.Optional;
+
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 
 public class BuildingEntityRoad extends BuildingEntity
 {
 
+	public FairyRoad road;
+
 	public BuildingEntityRoad(TileEntityBuilding tileEntity, Building building)
 	{
 		super(tileEntity, building);
+		road = new FairyRoad(EnumFacing.NORTH, EnumFacing.SOUTH, EnumFacing.WEST, EnumFacing.EAST);
 	}
 
 	@Override
-	public boolean canConnectRoad(EnumFacing facing)
+	public void readFromNBT(NBTTagCompound compound)
 	{
-		return facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH || facing == EnumFacing.WEST || facing == EnumFacing.EAST;
+		road.readFromNBT(compound.getCompoundTag("road"));
 	}
 
 	@Override
-	public boolean canConnectWaterway(EnumFacing facing)
+	public void writeToNBT(NBTTagCompound compound)
 	{
-		return false;
+		compound.setTag("road", road.createTagCompound());
+	}
+
+	@Override
+	public void update()
+	{
+		road.update(tileEntity.getWorld(), tileEntity.getPos());
+	}
+
+	@Override
+	public Optional<FairyRoad> getFairyRoad(EnumFacing facing)
+	{
+		return facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH || facing == EnumFacing.WEST || facing == EnumFacing.EAST
+			? Optional.of(road)
+			: Optional.empty();
 	}
 
 }
