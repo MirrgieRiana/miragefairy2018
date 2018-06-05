@@ -2,7 +2,7 @@ package miragefairy2018.mod.city;
 
 import net.minecraft.util.EnumFacing;
 
-public class BuildingEntityWaterway extends BuildingEntity implements IBuildingAccess
+public class BuildingEntityWaterway extends BuildingEntity
 {
 
 	public BuildingEntityWaterway(TileEntityBuilding tileEntity, Building building)

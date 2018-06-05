@@ -2,7 +2,7 @@ package miragefairy2018.mod.city;
 
 import net.minecraft.util.EnumFacing;
 
-public class BuildingEntityRoad extends BuildingEntity implements IBuildingAccess
+public class BuildingEntityRoad extends BuildingEntity
 {
 
 	public BuildingEntityRoad(TileEntityBuilding tileEntity, Building building)
