@@ -11,10 +11,14 @@ import miragefairy2018.lib.category.Category;
 import miragefairy2018.mod.EventRegistryMod;
 import miragefairy2018.mod.ModMirageFairy2018;
 import miragefairy2018.mod.ModuleMain;
+import miragefairy2018.mod.city.buildingentities.BuildingEntityFarm;
 import miragefairy2018.mod.city.buildingentities.BuildingEntityFountain;
+import miragefairy2018.mod.city.buildingentities.BuildingEntityHouse;
+import miragefairy2018.mod.city.buildingentities.BuildingEntityJewelProvider;
 import miragefairy2018.mod.city.buildingentities.BuildingEntityNothing;
 import miragefairy2018.mod.city.buildingentities.BuildingEntityRoad;
 import miragefairy2018.mod.city.buildingentities.BuildingEntityRoadAndWaterway;
+import miragefairy2018.mod.city.buildingentities.BuildingEntityTorchShop;
 import miragefairy2018.mod.city.buildingentities.BuildingEntityWaterway;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -37,9 +41,13 @@ public class ModuleCity
 	public static final Category<Building> buildings = new Category<>();
 	public static final Building buildingNothing = buildings.register(new Building(0, "nothing", "nothing", BuildingEntityNothing::new));
 	public static final Building buildingFountain = buildings.register(new Building(1, "fountain", "fountain", BuildingEntityFountain::new));
+	public static final Building buildingHouse = buildings.register(new Building(2, "house", "house", BuildingEntityHouse::new));
+	public static final Building buildingFarm = buildings.register(new Building(3, "farm", "farm", BuildingEntityFarm::new));
 	public static final Building buildingRoad = buildings.register(new Building(4, "road", "road", BuildingEntityRoad::new));
 	public static final Building buildingWaterway = buildings.register(new Building(5, "waterway", "waterway", BuildingEntityWaterway::new));
 	public static final Building buildingRoadAndWaterway = buildings.register(new Building(6, "roadAndWaterway", "road_and_waterway", BuildingEntityRoadAndWaterway::new));
+	public static final Building buildingJewelProvider = buildings.register(new Building(7, "jewelProvider", "jewel_provider", BuildingEntityJewelProvider::new));
+	public static final Building buildingTorchShop = buildings.register(new Building(8, "torchShop", "torch_shop", BuildingEntityTorchShop::new));
 
 	public static BlockBuilding blockBuilding;
 	public static ItemBuilding itemBuilding;
