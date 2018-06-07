@@ -1,25 +1,15 @@
 package miragefairy2018.mod.city;
 
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 
-public abstract class FairyComponentBase
+public abstract class FairyComponent
 {
 
-	protected EnumFacing[] facings;
-
-	public FairyComponentBase(EnumFacing... facings)
+	public FairyComponent()
 	{
-		this.facings = facings;
-		reset();
-	}
 
-	public boolean canConnect(EnumFacing facing)
-	{
-		for (EnumFacing facing2 : facings) {
-			if (facing2 == facing) return true;
-		}
-		return false;
 	}
 
 	public abstract void reset();
@@ -34,5 +24,7 @@ public abstract class FairyComponentBase
 	}
 
 	public abstract void writeToNBT(NBTTagCompound compound);
+
+	public abstract void update(IBlockAccess blockAccess, BlockPos pos);
 
 }
