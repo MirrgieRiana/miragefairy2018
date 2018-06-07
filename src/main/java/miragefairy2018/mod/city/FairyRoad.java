@@ -13,12 +13,12 @@ import net.minecraft.world.IBlockAccess;
 public class FairyRoad extends FairyComponentBase
 {
 
-	public double light;
-	public double air;
-	public double water;
-	public double darkness;
-	public double earth;
-	public double fire;
+	public DoubleValue light = new DoubleValue(0);
+	public DoubleValue air = new DoubleValue(0);
+	public DoubleValue water = new DoubleValue(0);
+	public DoubleValue darkness = new DoubleValue(0);
+	public DoubleValue earth = new DoubleValue(0);
+	public DoubleValue fire = new DoubleValue(0);
 
 	public FairyRoad(EnumFacing... facings)
 	{
@@ -28,38 +28,38 @@ public class FairyRoad extends FairyComponentBase
 	@Override
 	public void reset()
 	{
-		light = 0;
-		air = 0;
-		water = 0;
-		darkness = 0;
-		earth = 0;
-		fire = 0;
+		light.set(0);
+		air.set(0);
+		water.set(0);
+		darkness.set(0);
+		earth.set(0);
+		fire.set(0);
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound)
 	{
 		reset();
-		light = compound.getDouble("light");
-		air = compound.getDouble("air");
-		water = compound.getDouble("water");
-		darkness = compound.getDouble("darkness");
-		earth = compound.getDouble("earth");
-		fire = compound.getDouble("fire");
+		light.value = compound.getDouble("light");
+		air.value = compound.getDouble("air");
+		water.value = compound.getDouble("water");
+		darkness.value = compound.getDouble("darkness");
+		earth.value = compound.getDouble("earth");
+		fire.value = compound.getDouble("fire");
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound compound)
 	{
-		compound.setDouble("light", light);
-		compound.setDouble("air", air);
-		compound.setDouble("water", water);
-		compound.setDouble("darkness", darkness);
-		compound.setDouble("earth", earth);
-		compound.setDouble("fire", fire);
+		compound.setDouble("light", light.value);
+		compound.setDouble("air", air.value);
+		compound.setDouble("water", water.value);
+		compound.setDouble("darkness", darkness.value);
+		compound.setDouble("earth", earth.value);
+		compound.setDouble("fire", fire.value);
 	}
 
-	public double getMana(EnumManaType manaType)
+	public IDoubleValue getMana(EnumManaType manaType)
 	{
 		switch (manaType) {
 			case light:
@@ -74,59 +74,9 @@ public class FairyRoad extends FairyComponentBase
 				return earth;
 			case fire:
 				return fire;
+			default:
+				throw new IllegalArgumentException("" + manaType);
 		}
-		return 0;
-	}
-
-	public void setMana(EnumManaType manaType, double value)
-	{
-		switch (manaType) {
-			case light:
-				light = value;
-				break;
-			case air:
-				air = value;
-				break;
-			case water:
-				water = value;
-				break;
-			case darkness:
-				darkness = value;
-				break;
-			case earth:
-				earth = value;
-				break;
-			case fire:
-				fire = value;
-				break;
-		}
-	}
-
-	public void push(EnumManaType manaType, double value)
-	{
-		double now = getMana(manaType);
-		now += value;
-		if (now > 1000) now = 1000; // TODO 値を変更可能に
-		setMana(manaType, now);
-	}
-
-	public double pop(EnumManaType manaType, int value)
-	{
-		double now = getMana(manaType);
-		double delta;
-
-		if (now > value) {
-			delta = value;
-		} else if (now > 1) {
-			delta = now;
-		} else {
-			delta = 0;
-		}
-
-		now -= delta;
-		setMana(manaType, now);
-
-		return delta;
 	}
 
 	public void update(IBlockAccess blockAccess, BlockPos pos)
@@ -179,11 +129,11 @@ public class FairyRoad extends FairyComponentBase
 		if (count > 1) {
 			double sum = 0;
 			for (FairyRoad fairyRoad : list) {
-				sum += fairyRoad.getMana(manaType);
+				sum += fairyRoad.getMana(manaType).get();
 			}
 			double value = sum / count;
 			for (FairyRoad fairyRoad : list) {
-				fairyRoad.setMana(manaType, value);
+				fairyRoad.getMana(manaType).set(value);
 			}
 		}
 	}
