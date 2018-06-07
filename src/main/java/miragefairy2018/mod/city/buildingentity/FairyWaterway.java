@@ -19,18 +19,20 @@ import net.minecraft.world.IBlockAccess;
 public class FairyWaterway extends FairyComponentGrid
 {
 
-	public Optional<IFountain> oFountain;
-	public long token;
-
 	public FairyWaterway(EnumFacing... facings)
 	{
 		super(facings);
 	}
 
+	//
+
 	@Override
 	public void reset()
 	{
 		oFountain = Optional.empty();
+		i = FairyFountain.WATERWAY_UPDATE_TICK;
+		token = -1;
+		enabled = false;
 	}
 
 	@Override
@@ -47,12 +49,21 @@ public class FairyWaterway extends FairyComponentGrid
 
 	//
 
+	/**
+	 * イベント時、 {@link #oFountain} の値は常に存在する。
+	 */
 	public EventProviderRunnable updateWaterway = new EventProviderRunnable();
 	public EventProviderRunnable forgetWaterway = new EventProviderRunnable();
 
+	/**
+	 * {@link #enabled} が真であるなら値が存在する。
+	 */
+	public Optional<FairyFountain> oFountain = Optional.empty();
 	private int i = FairyFountain.WATERWAY_UPDATE_TICK;
+	private long token = -1;
 	public boolean enabled = false;;
 
+	@Override
 	public void update(IBlockAccess blockAccess, BlockPos pos)
 	{
 		i++;
@@ -69,8 +80,6 @@ public class FairyWaterway extends FairyComponentGrid
 
 		}
 	}
-
-	//
 
 	public void startWaterSupply(IBlockAccess blockAccess, BlockPos pos, long token, FairyFountain fountain)
 	{

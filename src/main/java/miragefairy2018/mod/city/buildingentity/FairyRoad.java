@@ -18,17 +18,12 @@ import net.minecraft.world.IBlockAccess;
 public class FairyRoad extends FairyComponentGrid
 {
 
-	public DoubleValue light = new DoubleValue(0);
-	public DoubleValue air = new DoubleValue(0);
-	public DoubleValue water = new DoubleValue(0);
-	public DoubleValue darkness = new DoubleValue(0);
-	public DoubleValue earth = new DoubleValue(0);
-	public DoubleValue fire = new DoubleValue(0);
-
 	public FairyRoad(EnumFacing... facings)
 	{
 		super(facings);
 	}
+
+	//
 
 	@Override
 	public void reset()
@@ -64,6 +59,15 @@ public class FairyRoad extends FairyComponentGrid
 		compound.setDouble("fire", fire.value);
 	}
 
+	//
+
+	public DoubleValue light = new DoubleValue(0);
+	public DoubleValue air = new DoubleValue(0);
+	public DoubleValue water = new DoubleValue(0);
+	public DoubleValue darkness = new DoubleValue(0);
+	public DoubleValue earth = new DoubleValue(0);
+	public DoubleValue fire = new DoubleValue(0);
+
 	public IDoubleValue getMana(EnumManaType manaType)
 	{
 		switch (manaType) {
@@ -84,6 +88,9 @@ public class FairyRoad extends FairyComponentGrid
 		}
 	}
 
+	//
+
+	@Override
 	public void update(IBlockAccess blockAccess, BlockPos pos)
 	{
 
