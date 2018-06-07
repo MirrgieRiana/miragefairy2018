@@ -41,6 +41,11 @@ item.plains_mirage_fairy.name=Plainsia
 item.mirage_wisp.name=Mirage Wisp
 
 tile.building.nothing.name=Nothing
+tile.building.fountain.name=Fountain
+tile.building.house.name=Fairy House
+tile.building.farm.name=Farm
 tile.building.road.name=Road
 tile.building.waterway.name=Waterway
 tile.building.road_and_waterway.name=Road and Waterway
+tile.building.jewel_provider.name=Jewel Provider
+tile.building.torch_shop.name=Torch Shop

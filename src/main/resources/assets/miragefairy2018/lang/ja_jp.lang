@@ -41,6 +41,11 @@ item.plains_mirage_fairy.name=プラインシャ
 item.mirage_wisp.name=ミラージュウィスプ
 
 tile.building.nothing.name=無
+tile.building.fountain.name=噴水
+tile.building.house.name=妖精の家
+tile.building.farm.name=畑
 tile.building.road.name=道路
 tile.building.waterway.name=水路
 tile.building.road_and_waterway.name=道路と水路
+tile.building.jewel_provider.name=ジュエルプロバイダー
+tile.building.torch_shop.name=松明屋
