@@ -27,11 +27,7 @@ public class TileEntityBuilding extends TileEntity implements ITickable, ITileEn
 		if (oBuildingEntity.isPresent()) {
 			NBTTagCompound tagBuilding = new NBTTagCompound();
 			tagBuilding.setString("name", oBuildingEntity.get().building.name);
-			{
-				NBTTagCompound tagBuildingEntity = new NBTTagCompound();
-				oBuildingEntity.get().writeToNBT(tagBuildingEntity);
-				tagBuilding.setTag("entity", tagBuildingEntity);
-			}
+			tagBuilding.setTag("entity", oBuildingEntity.get().createTagCompound());
 			compound.setTag("building", tagBuilding);
 		}
 		return compound;

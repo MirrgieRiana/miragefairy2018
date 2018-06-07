@@ -19,6 +19,13 @@ public abstract class BuildingEntity implements IBuildingAccess
 
 	}
 
+	public NBTTagCompound createTagCompound()
+	{
+		NBTTagCompound tag = new NBTTagCompound();
+		writeToNBT(tag);
+		return tag;
+	}
+
 	public void writeToNBT(NBTTagCompound compound)
 	{
 
