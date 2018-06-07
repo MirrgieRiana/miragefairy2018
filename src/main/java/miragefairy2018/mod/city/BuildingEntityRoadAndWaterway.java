@@ -42,17 +42,13 @@ public class BuildingEntityRoadAndWaterway extends BuildingEntity
 	@Override
 	public Optional<FairyRoad> getFairyRoad(EnumFacing facing)
 	{
-		return facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH || facing == EnumFacing.WEST || facing == EnumFacing.EAST
-			? Optional.of(road)
-			: Optional.empty();
+		return road.canConnect(facing) ? Optional.of(road) : Optional.empty();
 	}
 
 	@Override
 	public Optional<FairyWaterway> getFairyWaterway(EnumFacing facing)
 	{
-		return facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH || facing == EnumFacing.WEST || facing == EnumFacing.EAST
-			? Optional.of(waterway)
-			: Optional.empty();
+		return waterway.canConnect(facing) ? Optional.of(waterway) : Optional.empty();
 	}
 
 }

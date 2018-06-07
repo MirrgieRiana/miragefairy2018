@@ -37,9 +37,7 @@ public class BuildingEntityWaterway extends BuildingEntity
 	@Override
 	public Optional<FairyWaterway> getFairyWaterway(EnumFacing facing)
 	{
-		return facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH || facing == EnumFacing.WEST || facing == EnumFacing.EAST
-			? Optional.of(waterway)
-			: Optional.empty();
+		return waterway.canConnect(facing) ? Optional.of(waterway) : Optional.empty();
 	}
 
 }

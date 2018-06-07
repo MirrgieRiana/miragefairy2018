@@ -37,9 +37,7 @@ public class BuildingEntityRoad extends BuildingEntity
 	@Override
 	public Optional<FairyRoad> getFairyRoad(EnumFacing facing)
 	{
-		return facing == EnumFacing.NORTH || facing == EnumFacing.SOUTH || facing == EnumFacing.WEST || facing == EnumFacing.EAST
-			? Optional.of(road)
-			: Optional.empty();
+		return road.canConnect(facing) ? Optional.of(road) : Optional.empty();
 	}
 
 }
