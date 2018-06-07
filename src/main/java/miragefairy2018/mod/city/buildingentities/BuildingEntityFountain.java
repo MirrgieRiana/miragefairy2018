@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import java.util.Map.Entry;
 import java.util.Optional;
 
+import miragefairy2018.mod.ModuleMain;
 import miragefairy2018.mod.city.Building;
 import miragefairy2018.mod.city.SpecialManaType;
 import miragefairy2018.mod.city.TileEntityBuilding;
@@ -55,7 +56,7 @@ public class BuildingEntityFountain extends BuildingEntity
 						}
 
 						// TODO
-						System.out.println("" + entry.getKey() + ": " + String.format("%.1f", value));
+						ModuleMain.logger.info("[Fountain]: " + entry.getKey() + ": " + String.format("%.1f", value));
 
 					}
 					for (SpecialManaType specialManaType : removeList) {
@@ -63,8 +64,17 @@ public class BuildingEntityFountain extends BuildingEntity
 					}
 				}
 
-				// TODO
-				System.out.println("JEWEL: " + String.format("%.1f", fountain.jewel.get()));
+				// ジュエルが1000以上たまらないように
+				{
+
+					if (fountain.jewel.get() > 1000) {
+						fountain.jewel.set(1000);
+					}
+
+					// TODO
+					ModuleMain.logger.info("[Fountain]: jewel = " + String.format("%.1f", fountain.jewel.get()));
+
+				}
 
 			}
 

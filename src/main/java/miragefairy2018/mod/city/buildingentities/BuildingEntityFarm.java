@@ -1,5 +1,6 @@
 package miragefairy2018.mod.city.buildingentities;
 
+import miragefairy2018.mod.ModuleMain;
 import miragefairy2018.mod.city.Building;
 import miragefairy2018.mod.city.TileEntityBuilding;
 import miragefairy2018.mod.city.buildingentity.BuildingEntityFacilityBase;
@@ -14,7 +15,7 @@ public class BuildingEntityFarm extends BuildingEntityFacilityBase
 		super(tileEntity, building);
 
 		waterway.updateWaterway.register(() -> {
-			System.out.println(mana);
+			ModuleMain.logger.info("[Farm]: mana = " + mana); // TODO
 			mana = 0;
 		});
 		waterway.forgetWaterway.register(() -> {
