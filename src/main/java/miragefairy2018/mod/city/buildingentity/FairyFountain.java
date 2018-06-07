@@ -15,7 +15,7 @@ public class FairyFountain extends FairyComponent
 {
 
 	public static final int WATER_SUPPLY_INTERVAL = 100;
-	public static final int WATERWAY_UPDATE_TICK = 5;
+	public static final int WATERWAY_UPDATE_TICK = 95;
 	public static final int WATERWAY_FORGET_TICK = 105;
 
 	//
