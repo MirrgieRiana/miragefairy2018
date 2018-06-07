@@ -63,6 +63,9 @@ public class BuildingEntityFountain extends BuildingEntity
 					}
 				}
 
+				// TODO
+				System.out.println("JEWEL: " + String.format("%.1f", fountain.jewel.get()));
+
 			}
 
 		});
