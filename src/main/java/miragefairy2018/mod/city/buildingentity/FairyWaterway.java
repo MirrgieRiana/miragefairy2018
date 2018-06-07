@@ -1,10 +1,13 @@
-package miragefairy2018.mod.city;
+package miragefairy2018.mod.city.buildingentity;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
 
+import miragefairy2018.mod.city.FairyComponentGrid;
+import miragefairy2018.mod.city.IBuildingAccess;
+import miragefairy2018.mod.city.ITileEntityBuilding;
 import mirrg.beryllium.event2.EventProviderRunnable;
 import mirrg.beryllium.struct.Tuple;
 import net.minecraft.nbt.NBTTagCompound;
@@ -45,43 +48,46 @@ public class FairyWaterway extends FairyComponentGrid
 	//
 
 	public EventProviderRunnable updateWaterway = new EventProviderRunnable();
+	public EventProviderRunnable forgetWaterway = new EventProviderRunnable();
 
-	private int i = (int) (Math.random() * 100);
+	private int i = FairyFountain.WATERWAY_UPDATE_TICK;
+	public boolean enabled = false;;
 
 	public void update(IBlockAccess blockAccess, BlockPos pos)
 	{
-		i--;
-		if (i < 0) {
-			i += 100 + (int) (Math.random() * 5);
+		i++;
+		if (i == FairyFountain.WATERWAY_UPDATE_TICK) {
 
-			if (oFountain.isPresent()) {
-				if (!oFountain.get().exists()) {
-					oFountain = Optional.empty();
-				}
-			}
-
+			enabled = true;
 			updateWaterway.run();
+
+		} else if (i == FairyFountain.WATERWAY_FORGET_TICK) {
+
+			oFountain = Optional.empty();
+			enabled = false;
+			forgetWaterway.run();
 
 		}
 	}
 
 	//
 
-	public void startWaterSupply(IBlockAccess blockAccess, BlockPos pos, long token, IFountain fountain)
+	public void startWaterSupply(IBlockAccess blockAccess, BlockPos pos, long token, FairyFountain fountain)
 	{
 		doWaterSupplyImpl(blockAccess, pos, token, fountain, null);
 	}
 
-	public void onWaterSupply(IBlockAccess blockAccess, BlockPos pos, long token, IFountain fountain, EnumFacing facing)
+	public void onWaterSupply(IBlockAccess blockAccess, BlockPos pos, long token, FairyFountain fountain, EnumFacing facing)
 	{
 		doWaterSupplyImpl(blockAccess, pos, token, fountain, facing);
 	}
 
-	protected void doWaterSupplyImpl(IBlockAccess blockAccess, BlockPos pos, long token, IFountain fountain, @Nullable EnumFacing facing)
+	protected void doWaterSupplyImpl(IBlockAccess blockAccess, BlockPos pos, long token, FairyFountain fountain, @Nullable EnumFacing facing)
 	{
 
 		// 登録
 		oFountain = Optional.of(fountain);
+		i = 0;
 		this.token = token;
 
 		// 隣接している建物を列挙

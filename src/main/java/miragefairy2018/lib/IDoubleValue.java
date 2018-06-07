@@ -1,4 +1,4 @@
-package miragefairy2018.mod.city;
+package miragefairy2018.lib;
 
 public interface IDoubleValue
 {

@@ -1,5 +1,8 @@
-package miragefairy2018.mod.city;
+package miragefairy2018.mod.city.buildingentity;
 
+import miragefairy2018.mod.city.Building;
+import miragefairy2018.mod.city.IBuildingAccess;
+import miragefairy2018.mod.city.TileEntityBuilding;
 import net.minecraft.nbt.NBTTagCompound;
 
 public abstract class BuildingEntity implements IBuildingAccess

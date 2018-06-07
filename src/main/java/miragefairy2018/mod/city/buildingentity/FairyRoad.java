@@ -1,8 +1,13 @@
-package miragefairy2018.mod.city;
+package miragefairy2018.mod.city.buildingentity;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
+import miragefairy2018.lib.DoubleValue;
+import miragefairy2018.lib.IDoubleValue;
+import miragefairy2018.mod.city.FairyComponentGrid;
+import miragefairy2018.mod.city.IBuildingAccess;
+import miragefairy2018.mod.city.ITileEntityBuilding;
 import miragefairy2018.mod.fairy.EnumManaType;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

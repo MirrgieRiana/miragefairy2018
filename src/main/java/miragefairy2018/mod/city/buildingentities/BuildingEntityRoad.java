@@ -1,54 +1,47 @@
-package miragefairy2018.mod.city;
+package miragefairy2018.mod.city.buildingentities;
 
 import java.util.Optional;
 
+import miragefairy2018.mod.city.Building;
+import miragefairy2018.mod.city.TileEntityBuilding;
+import miragefairy2018.mod.city.buildingentity.BuildingEntity;
+import miragefairy2018.mod.city.buildingentity.FairyRoad;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 
-public class BuildingEntityRoadAndWaterway extends BuildingEntity
+public class BuildingEntityRoad extends BuildingEntity
 {
 
 	public FairyRoad road;
-	public FairyWaterway waterway;
 
-	public BuildingEntityRoadAndWaterway(TileEntityBuilding tileEntity, Building building)
+	public BuildingEntityRoad(TileEntityBuilding tileEntity, Building building)
 	{
 		super(tileEntity, building);
 		road = new FairyRoad(EnumFacing.NORTH, EnumFacing.SOUTH, EnumFacing.WEST, EnumFacing.EAST);
-		waterway = new FairyWaterway(EnumFacing.NORTH, EnumFacing.SOUTH, EnumFacing.WEST, EnumFacing.EAST);
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound)
 	{
 		road.readFromNBT(compound.getCompoundTag("road"));
-		waterway.readFromNBT(compound.getCompoundTag("waterway"));
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound compound)
 	{
 		compound.setTag("road", road.createTagCompound());
-		compound.setTag("waterway", waterway.createTagCompound());
 	}
 
 	@Override
 	public void update()
 	{
 		road.update(tileEntity.getWorld(), tileEntity.getPos());
-		waterway.update(tileEntity.getWorld(), tileEntity.getPos());
 	}
 
 	@Override
 	public Optional<FairyRoad> getFairyRoad(EnumFacing facing)
 	{
 		return road.canConnect(facing) ? Optional.of(road) : Optional.empty();
-	}
-
-	@Override
-	public Optional<FairyWaterway> getFairyWaterway(EnumFacing facing)
-	{
-		return waterway.canConnect(facing) ? Optional.of(waterway) : Optional.empty();
 	}
 
 }

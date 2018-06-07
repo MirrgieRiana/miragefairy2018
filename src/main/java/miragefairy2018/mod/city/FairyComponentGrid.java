@@ -10,7 +10,6 @@ public abstract class FairyComponentGrid extends FairyComponent
 	public FairyComponentGrid(EnumFacing... facings)
 	{
 		this.facings = facings;
-		reset();
 	}
 
 	public boolean canConnect(EnumFacing facing)

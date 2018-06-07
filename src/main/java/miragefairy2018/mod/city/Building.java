@@ -3,6 +3,7 @@ package miragefairy2018.mod.city;
 import java.util.function.BiFunction;
 
 import miragefairy2018.lib.category.CategoryItem;
+import miragefairy2018.mod.city.buildingentity.BuildingEntity;
 
 public class Building extends CategoryItem<Building>
 {

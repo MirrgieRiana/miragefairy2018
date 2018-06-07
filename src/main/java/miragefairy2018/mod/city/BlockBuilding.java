@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import miragefairy2018.lib.UnlistedPropertyBoolean;
 import miragefairy2018.lib.category.PropertyCategory;
+import miragefairy2018.mod.city.buildingentity.BuildingEntity;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;

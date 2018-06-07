@@ -1,17 +1,22 @@
-package miragefairy2018.mod.city;
+package miragefairy2018.mod.city.buildingentities;
 
 import java.util.Optional;
 
+import miragefairy2018.mod.city.Building;
+import miragefairy2018.mod.city.TileEntityBuilding;
+import miragefairy2018.mod.city.buildingentity.BuildingEntity;
+import miragefairy2018.mod.city.buildingentity.FairyRoad;
+import miragefairy2018.mod.city.buildingentity.FairyWaterway;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 
-public class BuildingEntityFacilityBase extends BuildingEntity
+public class BuildingEntityRoadAndWaterway extends BuildingEntity
 {
 
 	public FairyRoad road;
 	public FairyWaterway waterway;
 
-	public BuildingEntityFacilityBase(TileEntityBuilding tileEntity, Building building)
+	public BuildingEntityRoadAndWaterway(TileEntityBuilding tileEntity, Building building)
 	{
 		super(tileEntity, building);
 		road = new FairyRoad(EnumFacing.NORTH, EnumFacing.SOUTH, EnumFacing.WEST, EnumFacing.EAST);

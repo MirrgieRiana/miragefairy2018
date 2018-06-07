@@ -2,6 +2,7 @@ package miragefairy2018.mod.city;
 
 import java.util.Optional;
 
+import miragefairy2018.mod.city.buildingentity.BuildingEntity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
