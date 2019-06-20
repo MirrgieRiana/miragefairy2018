@@ -22,7 +22,7 @@ compileJava {
 tasks.withType(AbstractCompile)*.options*.encoding = 'UTF-8'
 
 minecraft {
-    version = "1.12.2-14.23.3.2655"
+    version = "1.12.2-14.23.5.2768"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -35,7 +35,7 @@ minecraft {
 }
 
 repositories {
-    maven { url 'https://mirrgieriana.github.io/mirrg.beryllium/' }
+    maven { url 'https://mirrgieriana.github.io/mirrg.beryllium/maven/' }
 }
 
 dependencies {
