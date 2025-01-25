@@ -1,0 +1,70 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"wall":     "blocks/log_oak",
+		"roof":     "blocks/hay_block_side",
+		"particle": "blocks/log_oak"
+	},
+	"elements": [
+		{
+			"from": [  4, 0,  8 ],
+			"to":   [ 12, 2, 12 ],
+			"faces": {
+				"up":    { "uv": [ 4, 8, 12, 12 ], "texture": "#wall" },
+				"down":  { "uv": [ 4, 8, 12, 12 ], "texture": "#wall" },
+				"north": { "uv": [ 4, 0, 12,  2 ], "texture": "#wall" },
+				"south": { "uv": [ 4, 0, 12,  2 ], "texture": "#wall" },
+				"west":  { "uv": [ 8, 0, 12,  2 ], "texture": "#wall" },
+				"east":  { "uv": [ 8, 0, 12,  2 ], "texture": "#wall" }
+			}
+		},
+		{
+			"from": [  2, 2,  6 ],
+			"to":   [ 14, 3, 14 ],
+			"faces": {
+				"up":    { "uv": [ 2, 6, 14, 14 ], "texture": "#roof" },
+				"down":  { "uv": [ 2, 6, 14, 14 ], "texture": "#roof" },
+				"north": { "uv": [ 2, 2, 14,  3 ], "texture": "#roof" },
+				"south": { "uv": [ 2, 2, 14,  3 ], "texture": "#roof" },
+				"west":  { "uv": [ 6, 2, 14,  3 ], "texture": "#roof" },
+				"east":  { "uv": [ 6, 2, 14,  3 ], "texture": "#roof" }
+			}
+		},
+		{
+			"from": [  3, 3,  7 ],
+			"to":   [ 13, 4, 13 ],
+			"faces": {
+				"up":    { "uv": [ 3, 7, 13, 13 ], "texture": "#roof" },
+				"down":  { "uv": [ 3, 7, 13, 13 ], "texture": "#roof" },
+				"north": { "uv": [ 3, 3, 13,  4 ], "texture": "#roof" },
+				"south": { "uv": [ 3, 3, 13,  4 ], "texture": "#roof" },
+				"west":  { "uv": [ 7, 3, 13,  4 ], "texture": "#roof" },
+				"east":  { "uv": [ 7, 3, 13,  4 ], "texture": "#roof" }
+			}
+		},
+		{
+			"from": [  4, 4,  8 ],
+			"to":   [ 12, 5, 12 ],
+			"faces": {
+				"up":    { "uv": [ 4, 8, 12, 12 ], "texture": "#roof" },
+				"down":  { "uv": [ 4, 8, 12, 12 ], "texture": "#roof" },
+				"north": { "uv": [ 4, 4, 12,  5 ], "texture": "#roof" },
+				"south": { "uv": [ 4, 4, 12,  5 ], "texture": "#roof" },
+				"west":  { "uv": [ 8, 4, 12,  5 ], "texture": "#roof" },
+				"east":  { "uv": [ 8, 4, 12,  5 ], "texture": "#roof" }
+			}
+		},
+		{
+			"from": [  5, 5,  9 ],
+			"to":   [ 11, 6, 11 ],
+			"faces": {
+				"up":    { "uv": [ 5, 9, 11, 11 ], "texture": "#roof" },
+				"down":  { "uv": [ 5, 9, 11, 11 ], "texture": "#roof" },
+				"north": { "uv": [ 5, 5, 11,  6 ], "texture": "#roof" },
+				"south": { "uv": [ 5, 5, 11,  6 ], "texture": "#roof" },
+				"west":  { "uv": [ 9, 5, 11,  6 ], "texture": "#roof" },
+				"east":  { "uv": [ 9, 5, 11,  6 ], "texture": "#roof" }
+			}
+		}
+	]
+}

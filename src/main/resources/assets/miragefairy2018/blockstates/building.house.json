@@ -1,7 +1,9 @@
 {
-	"variants": {
-		"normal": {
-			"model": "dirt"
+	"multipart": [
+
+		{
+			"apply": { "model": "miragefairy2018:building.house" }
 		}
-	}
+
+	]
 }
